@@ -3,6 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReadyWaters.Views.LocationPage"
              Title="LocationPage">
-    <Grid>
-    </Grid>
+    
+
+    <VerticalStackLayout>
+        <Label Text="Forest Lawn"/>
+                
+        <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="Beige" BorderColor="Black" CornerRadius="40" HeightRequest="400" WidthRequest="550" >
+                
+        </Frame>        
+    
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>                
+            </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Wind Data Here"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Text="Wind"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Air Temp Data Here"></Label>
+                <Label Grid.Row="3" Grid.Column="0" Text="Air Temp"/>
+                <Label Grid.Row="4" Grid.Column="1" Text="Surface Temp Data Here"></Label>
+                <Label Grid.Row="5" Grid.Column="1" Text="Surface Temp"/>
+                <Label Grid.Row="6" Grid.Column="1" Text="Wave Height Data Here"></Label>
+                <Label Grid.Row="7" Grid.Column="1" Text="Wave Height"/>
+        </Grid>
+
+        
+    </VerticalStackLayout>
 </ContentPage>

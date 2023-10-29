@@ -2,6 +2,57 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReadyWaters.MainPage">
-    <Grid>
-    </Grid>
+
+    
+    <VerticalStackLayout>
+
+        
+    <Grid Margin="40">
+        <Grid.RowDefinitions >
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="Beige" BorderColor="Black" CornerRadius="40" HeightRequest="200" WidthRequest="350" Margin="0,100,0,50">          
+        </Frame>
+            <Slider Grid.Column="0" Grid.Row="1" Margin="0,-10,0,50">
+            </Slider>
+            <Label Grid.Column="0" Grid.Row="2" Margin="0,-65,0,0" FontSize="Title">Wind</Label>
+
+            <Frame Grid.Column="0" Grid.Row="3" BackgroundColor="Aqua" BorderColor="Black" CornerRadius="40" HeightRequest="200" WidthRequest="350" Margin="0,-200,0,0">            
+        </Frame>
+            <Slider Grid.Column="0" Grid.Row="4" Margin="0,-45,0,10">
+            </Slider>
+            <Label Grid.Column="0" Grid.Row="5" Margin="0,60,0,0" FontSize="Title">Wave Height</Label>
+        </Grid>
+        
+        <Grid Margin="0,-40,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" CornerRadius="20" HeightRequest="70" WidthRequest="150" Margin="5" BorderColor="Black" BorderWidth="2" Text="Irondequoit Bay">
+
+            </Button>
+            <Button Grid.Row="1" Grid.Column="0" CornerRadius="20" HeightRequest="70" WidthRequest="150" Margin="5" BorderColor="Black" BorderWidth="2" Text="Genessee River">
+
+            </Button>
+            <Button Grid.Row="0" Grid.Column="1" CornerRadius="20" HeightRequest="70" WidthRequest="150" Margin="5" BorderColor="Black" BorderWidth="2" Text="Forest Lawn">
+
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" CornerRadius="20" HeightRequest="70" WidthRequest="150" Margin="5" BorderColor="Black" BorderWidth="2" Text="Webster Park">
+
+            </Button>
+
+        </Grid>
+    </VerticalStackLayout>
+    
 </ContentPage>
