@@ -9,8 +9,7 @@
     Shell.NavBarIsVisible="True">
 
     <TabBar>
-        <Tab Title="Data"
-                Icon="dotmenu.png">
+        <Tab>
             <ShellContent Title="Lake Ontario"
                             ContentTemplate="{DataTemplate views:LVPage}" />
             <ShellContent Title="Irondequoit Bay"
