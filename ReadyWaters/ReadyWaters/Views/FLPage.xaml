@@ -25,6 +25,32 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0">Data</Label>
+            <VerticalStackLayout Grid.Row="1">
+                <HorizontalStackLayout>
+                    <Label Text="AirTemp  " FontSize="Large"/>
+                    <Label x:Name="AirTempField" FontSize="Large"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="0,10,0,0">
+                    <Label Text="Water Temp  " FontSize="Large"/>
+                    <Label x:Name="WaterTempField" FontSize="Large"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="0,10,0,0">
+                    <Label Text="Wave Height  " FontSize="Large"/>
+                    <Label x:Name="WaveVelocityField" FontSize="Large"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="0,10,0,0">
+                    <Label Text="Wave Direction  " FontSize="Large"/>
+                    <Label x:Name="WaveDirectionField" FontSize="Large"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="0,10,0,0">
+                    <Label Text="Wind Velocity  " FontSize="Large"/>
+                    <Label x:Name="WindVelocityField" FontSize="Large"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="0,10,0,0">
+                    <Label Text="Wind Direction  " FontSize="Large"/>
+                    <Label x:Name="WindDirectionField" FontSize="Large"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
         </Grid>
 
     </Grid>
