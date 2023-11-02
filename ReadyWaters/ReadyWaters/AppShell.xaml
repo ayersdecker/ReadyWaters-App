@@ -4,12 +4,22 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ReadyWaters"
+    xmlns:views="clr-namespace:ReadyWaters.Views"
     Shell.FlyoutBehavior="Disabled"
-    Shell.NavBarIsVisible="False">
+    Shell.NavBarIsVisible="True">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Data"
+                Icon="dotmenu.png">
+            <ShellContent Title="Lake Ontario"
+                            ContentTemplate="{DataTemplate views:LVPage}" />
+            <ShellContent Title="Irondequoit Bay"
+                            ContentTemplate="{DataTemplate views:IBPage}" />
+            <ShellContent Title="Genesee River"
+                            ContentTemplate="{DataTemplate views:GRPage}" />
+            <ShellContent Title="Forest Lawn"
+                            ContentTemplate="{DataTemplate views:FLPage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>
