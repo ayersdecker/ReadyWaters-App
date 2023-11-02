@@ -17,8 +17,9 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
-            
-            <Label Grid.Row="1">Chart 1</Label>
+
+            <Label Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Chart 1</Label>
+            <Grid Grid.Row="2" BackgroundColor="{DynamicResource Gray600}"></Grid>
             <Slider Grid.Row="3"></Slider>
             
         </Grid>
@@ -32,7 +33,8 @@
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="1">Chart 2</Label>
+            <Label Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Chart 2</Label>
+            <Grid Grid.Row="2" BackgroundColor="{DynamicResource Gray600}"></Grid>
             <Slider Grid.Row="3"></Slider>
         </Grid>
         
