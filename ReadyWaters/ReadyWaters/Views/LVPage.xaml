@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReadyWaters.Views.LVPage"
              Title="Weather To Go">
-    <Grid BackgroundColor="{DynamicResource Raisin}">
+    <Grid BackgroundColor="{x:DynamicResource Raisin}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -14,19 +14,28 @@
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
+                <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
 
             <Label Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Chart 1</Label>
             <Grid Grid.Row="2" BackgroundColor="{DynamicResource Gray600}"></Grid>
-            <Slider Grid.Row="3"></Slider>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Picker Grid.Column="0" BackgroundColor="{DynamicResource Gray600}" Title="Upper Chart Select"/>
+                <Picker Grid.Column="2" BackgroundColor="{DynamicResource Gray600}" Title="Lower Chart Select"/>
+            </Grid>
             
         </Grid>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="10"/>
+                <RowDefinition Height="0"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
