@@ -3,10 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              x:Class="ReadyWaters.MainPage">
-    <!-- Status Bar -->
-    <ContentPage.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="{DynamicResource Raisin}" StatusBarStyle="LightContent"/>
-    </ContentPage.Behaviors>
+  
 
 
     <Grid>

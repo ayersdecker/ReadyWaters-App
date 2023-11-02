@@ -5,8 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ReadyWaters"
     xmlns:views="clr-namespace:ReadyWaters.Views"
+    xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="True">
+
+    <Shell.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{DynamicResource Raisin}" StatusBarStyle="LightContent"/>
+    </Shell.Behaviors>
 
     <TabBar>
         <Tab>
