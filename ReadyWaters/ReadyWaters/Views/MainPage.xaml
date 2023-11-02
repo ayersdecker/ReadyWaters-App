@@ -5,7 +5,7 @@
              x:Class="ReadyWaters.MainPage">
     <!-- Status Bar -->
     <ContentPage.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="{DynamicResource Orange}" StatusBarStyle="DarkContent"/>
+        <mct:StatusBarBehavior StatusBarColor="{DynamicResource Raisin}" StatusBarStyle="LightContent"/>
     </ContentPage.Behaviors>
 
 
