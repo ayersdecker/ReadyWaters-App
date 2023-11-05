@@ -12,7 +12,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button Text="Resources" Clicked="Resource_Button_Clicked"/>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" BackgroundColor="{DynamicResource Raisin}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>

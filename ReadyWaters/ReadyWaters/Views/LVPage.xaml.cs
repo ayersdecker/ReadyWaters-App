@@ -11,4 +11,9 @@ public partial class LVPage : ContentPage
     {
 
     }
+
+    private void ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

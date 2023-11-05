@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Mopups.Hosting;
 
 namespace ReadyWaters
 {
@@ -10,6 +11,7 @@ namespace ReadyWaters
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureMopups()
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {

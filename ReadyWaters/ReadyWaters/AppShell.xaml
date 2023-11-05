@@ -12,6 +12,10 @@
     <Shell.Behaviors>
         <mct:StatusBarBehavior StatusBarColor="{DynamicResource Raisin}" StatusBarStyle="LightContent"/>
     </Shell.Behaviors>
+    
+    <Shell.ToolbarItems>
+        <ToolbarItem IconImageSource="dotmenu.png" Clicked="ToolbarItem_Clicked"/>
+    </Shell.ToolbarItems>
 
     <TabBar>
         <Tab>
