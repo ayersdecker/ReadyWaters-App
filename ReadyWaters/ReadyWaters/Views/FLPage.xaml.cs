@@ -7,7 +7,7 @@ public partial class FLPage : ContentPage
 	public FLPage()
 	{
 		InitializeComponent();
-        OnGetForecast(43.24872, -77.49967);
+        OnGetForecast(43.2487, -77.4996);
 	}
     public async void OnGetForecast(double lon, double lat)
     {

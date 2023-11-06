@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Chart 1</Label>
-            <imageEditor:SfImageEditor Grid.Row="2" ZoomLevel="1.1" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_1.png?1699233129000" AllowZoom="True" ShowToolbar="False"/>
+            <Image x:Name="Chart1" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_1.png?1699233129000"/>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -46,9 +46,9 @@
             </Grid.RowDefinitions> 
 
             <Label Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Chart 2</Label>
-            <imageEditor:SfImageEditor Grid.Row="2" ZoomLevel="1.1" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_1.png" AllowZoom="True" ShowToolbar="False"/>
-                    
-            <Slider Grid.Row="3"></Slider>
+            <imageEditor:SfImageEditor x:Name="Chart2" Grid.Row="2" ZoomLevel="1.1" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_1.png" AllowZoom="True" ShowToolbar="False"/>
+
+            <Slider Grid.Row="3" IsVisible="true" ValueChanged="Slider_ValueChanged" Minimum="1" Maximum="50" Value="5" ></Slider>
         </Grid>
         
     </Grid>
