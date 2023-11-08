@@ -8,6 +8,20 @@ public partial class GRPage : ContentPage
 	{
 		InitializeComponent();
         OnGetForecast(43.2540828, -77.6017813);
+        InjectVideo();
+    }
+
+    public void InjectVideo()
+    {
+        HtmlWebViewSource hal = new HtmlWebViewSource();
+        string iframeHtml = $@"
+                <html>
+                    <body>
+                        <iframe width='370' height='250' src='https://www.youtube.com/embed/R3doZOF9Yis?autoplay=0&showinfo=0&controls=0' frameborder='0' allow='autoplay'></iframe>
+                    </body>
+                </html>";
+        hal.Html = iframeHtml;
+        Video.Source = hal;
     }
     public async void OnGetForecast(double lon, double lat)
     {

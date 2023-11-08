@@ -18,7 +18,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0">Webcam</Label>
-            <Image Grid.Row="1" x:Name="WebcamImage" Source="https://cameras-cam.cdn.weatherbug.net/RCGLH/2023/11/06/110620231156_l.jpg"/>
+            <WebView Grid.Row="1" x:Name="Video">
+                
+            </WebView>
+            <Image IsVisible="false" Grid.Row="1" x:Name="WebcamImage" Source="https://cameras-cam.cdn.weatherbug.net/RCGLH/2023/11/06/110620231156_l.jpg"/>
         </Grid>
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
             <Grid.RowDefinitions>
