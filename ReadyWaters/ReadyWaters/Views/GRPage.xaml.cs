@@ -1,27 +1,19 @@
 using Newtonsoft.Json;
+using static System.Net.WebRequestMethods;
 
 namespace ReadyWaters.Views;
 
 public partial class GRPage : ContentPage
 {
+    public DateTime DateTimeNow { get; set; }
+    public string gRUrl { get; set; }
+
 	public GRPage()
 	{
 		InitializeComponent();
         OnGetForecast(43.2540828, -77.6017813);
-        InjectVideo();
-    }
-
-    public void InjectVideo()
-    {
-        HtmlWebViewSource hal = new HtmlWebViewSource();
-        string iframeHtml = $@"
-                <html>
-                    <body>
-                        <iframe width='370' height='250' src='https://www.youtube.com/embed/R3doZOF9Yis?autoplay=0&showinfo=0&controls=0' frameborder='0' allow='autoplay'></iframe>
-                    </body>
-                </html>";
-        hal.Html = iframeHtml;
-        Video.Source = hal;
+        BindingContext = this;       
+        GetDateTimeStamp();
     }
     public async void OnGetForecast(double lon, double lat)
     {
@@ -46,5 +38,21 @@ public partial class GRPage : ContentPage
         //response.EnsureSuccessStatusCode();
         string content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<dynamic>(content);
+    }
+    public string GetDateTimeStamp()
+    {
+
+        DateTimeNow = DateTime.Now;
+        string year = DateTimeNow.Year.ToString();
+        string month = DateTimeNow.Month.ToString();
+        string day = DateTimeNow.Day.ToString();
+        string hour = ((DateTimeNow.Hour) - 1).ToString();
+        string minute = DateTimeNow.Minute.ToString();
+        
+        gRUrl = $"https://cameras-cam.cdn.weatherbug.net/rcglh/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        //WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/rcglh/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        //webcamimage.source = new uri(grurl);
+        return gRUrl;
+
     }
 }

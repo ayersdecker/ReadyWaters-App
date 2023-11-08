@@ -23,7 +23,7 @@ public partial class SettingsPopup
     }
     private async void GLERLButton_Clicked(object sender, EventArgs e)
     {        
-        await Browser.Default.OpenAsync("https://www.glerl.noaa.gov/");
+        await Browser.Default.OpenAsync("https://www.glerl.noaa.gov/res/glcfs/ncast.php?lake=ont");
     }
     
 }
