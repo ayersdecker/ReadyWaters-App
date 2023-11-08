@@ -1,4 +1,3 @@
-using static Android.Graphics.ImageDecoder;
 
 namespace ReadyWaters.Views;
 
