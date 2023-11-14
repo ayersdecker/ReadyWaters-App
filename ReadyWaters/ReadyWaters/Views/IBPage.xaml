@@ -128,7 +128,7 @@
                         <chart:ChartLegend ToggleSeriesVisibility="True"/>
                     </chart:SfCartesianChart.Legend>
                     <chart:SfCartesianChart.Title>
-                        <Label Text="Wind Direction" Margin="0" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" TextColor="#1c43ed"/>
+                            <Label Text="Wind Direction" Margin="0" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" TextColor="#80b3ed"/>
                     </chart:SfCartesianChart.Title>
                     <chart:SfCartesianChart.XAxes>
                         <chart:CategoryAxis ShowMajorGridLines="true" Interval="1" PlotOffsetStart="5" PlotOffsetEnd="5" AxisLineOffset="10">

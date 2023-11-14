@@ -79,7 +79,7 @@ public partial class IBPage : ContentPage
         string iframeHtml = $@"
                 <html>
                     <body>
-                        <iframe width='370' height='250' src='https://www.youtube.com/embed/9k_sg8rhsgk?autoplay=1&showinfo=0&controls=0' frameborder='0' allow='autoplay'></iframe>
+                        <iframe width='370' height='250' src='https://www.youtube.com/embed/XpC7TdaWKpg?autoplay=1&showinfo=0&controls=0' frameborder='0' allow='autoplay'></iframe>
                     </body>
                 </html>";
         hal.Html = iframeHtml;
