@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> fd555e51504a5f072c97d24be546d8f4d311ba5a
 
 namespace ReadyWaters.Views;
 

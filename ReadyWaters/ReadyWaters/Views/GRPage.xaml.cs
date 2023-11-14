@@ -11,9 +11,11 @@ public partial class GRPage : ContentPage
 	public GRPage()
 	{
 		InitializeComponent();
-        OnGetForecast(43.2540828, -77.6017813);
-        BindingContext = this;       
+        OnGetForecast(43.25408, -77.60178);
+        BindingContext = this;
         GetDateTimeStamp();
+
+
     }
     public async void OnGetForecast(double lon, double lat)
     {
@@ -39,20 +41,22 @@ public partial class GRPage : ContentPage
         string content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<dynamic>(content);
     }
-    public string GetDateTimeStamp()
+    public void GetDateTimeStamp()
     {
 
         DateTimeNow = DateTime.Now;
         string year = DateTimeNow.Year.ToString();
-        string month = DateTimeNow.Month.ToString();
-        string day = DateTimeNow.Day.ToString();
+        string month = DateTimeNow.ToString("MM");
+        string day = DateTimeNow.ToString("dd");
         string hour = ((DateTimeNow.Hour) - 1).ToString();
-        string minute = DateTimeNow.Minute.ToString();
+        string minute = "56";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
         
-        gRUrl = $"https://cameras-cam.cdn.weatherbug.net/rcglh/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
-        //WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/rcglh/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
-        //webcamimage.source = new uri(grurl);
-        return gRUrl;
+        gRUrl = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        
+        //WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        WebcamImage.Source = gRUrl;
+
+        //return gRUrl;
 
     }
 }

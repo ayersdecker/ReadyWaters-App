@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace ReadyWaters
@@ -13,6 +14,7 @@ namespace ReadyWaters
             builder
                 .UseMauiApp<App>()
                 .ConfigureMopups()
+                .UseSkiaSharp(true)
                 .ConfigureSyncfusionCore()
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
