@@ -18,6 +18,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0">Webcam</Label>
+            <Image Grid.Row="1" x:Name="WebcamImage"/>
         </Grid>
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
             <Grid.RowDefinitions>

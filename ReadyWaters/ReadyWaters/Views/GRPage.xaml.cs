@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using static System.Net.WebRequestMethods;
+using System.Timers;
 
 namespace ReadyWaters.Views;
 
@@ -7,13 +8,17 @@ public partial class GRPage : ContentPage
 {
     public DateTime DateTimeNow { get; set; }
     public string gRUrl { get; set; }
+    public string gRUrl2 { get; set; }
+    public string gRUrl3 { get; set; }
+    public string gRUrl4 { get; set; }
 
-	public GRPage()
+    public GRPage()
 	{
 		InitializeComponent();
         OnGetForecast(43.25408, -77.60178);
         BindingContext = this;
         GetDateTimeStamp();
+        //PlayWebCamImages();
 
 
     }
@@ -41,7 +46,7 @@ public partial class GRPage : ContentPage
         string content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<dynamic>(content);
     }
-    public void GetDateTimeStamp()
+    public async void GetDateTimeStamp()
     {
 
         DateTimeNow = DateTime.Now;
@@ -53,10 +58,53 @@ public partial class GRPage : ContentPage
         
         gRUrl = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
         
-        //WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        
         WebcamImage.Source = gRUrl;
+
+        var timer = new System.Timers.Timer(5000);
+        timer.Elapsed += (sender, e) =>
+        {
+            
+            WebcamImage.Source = "https://cameras-cam.cdn.weatherbug.net/RCGLH/2023/11/06/110620231756_l.jpg";
+        };
+        timer.Start();
+        timer.Elapsed += (sender, e) =>
+        {
+
+            WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        };
+        timer.Start();
+
+
+
+
+
+        //gRUrl2 = "https://cameras-cam.cdn.weatherbug.net/RCGLH/2023/11/06/110620231756_l.jpg";
+        //WebcamImage.Source = gRUrl2;
+
+        //gRUrl2 = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour + 1}{minute}_l.jpg";
+
+
+        //gRUrl3 = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour + 1}{minute}_l.jpg";
+
+
+        //gRUrl4 = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour + 1}{minute}_l.jpg";
+
 
         //return gRUrl;
 
+
     }
+    //public async void PlayWebCamImages()
+    //{
+    //   gRUrl2 = "https://cameras-cam.cdn.weatherbug.net/RCGLH/2023/11/06/110620231756_l.jpg";
+    //   // WebcamImage.Source = gRUrl2;
+
+    //    //gRUrl3 = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour + 1}{minute}_l.jpg";
+    //    //await WebcamImage.Source = gRUrl3;
+
+    //    //gRUrl4 = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour + 1}{minute}_l.jpg";
+    //    //await WebcamImage.Source = gRUrl4;
+
+    //}
 }

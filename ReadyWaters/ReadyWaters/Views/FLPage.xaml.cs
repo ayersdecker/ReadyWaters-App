@@ -1,14 +1,20 @@
 using Newtonsoft.Json;
+using static System.Net.WebRequestMethods;
 
 namespace ReadyWaters.Views;
 
 public partial class FLPage : ContentPage
 {
-	public FLPage()
+    public DateTime DateTimeNow { get; set; }
+    public string fLUrl { get; set; }
+    public FLPage()
 	{
 		InitializeComponent();
         OnGetForecast(43.2487, -77.4996);
-	}
+        WebcamImage.Source = "https://www.weatherbug.com/weather-camera/?cam=WBSTR";
+        GetDateTimeStamp();
+
+    }
     public async void OnGetForecast(double lon, double lat)
     {
         dynamic query = await FetchURLToJson($"https://api.weather.gov/points/{lon},{lat}");
@@ -32,5 +38,24 @@ public partial class FLPage : ContentPage
         //response.EnsureSuccessStatusCode();
         string content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<dynamic>(content);
+    }
+    public void GetDateTimeStamp()
+    {
+
+        DateTimeNow = DateTime.Now;
+        string year = DateTimeNow.Year.ToString();
+        string month = DateTimeNow.ToString("MM");
+        string day = DateTimeNow.ToString("dd");
+        string hour = ((DateTimeNow.Hour) - 1).ToString();
+        string minute = "56";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
+
+        //fLUrl = $"https://www.weatherbug.com/weather-camera/?cam=WBSTR/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        //fLUrl = "https://www.weatherbug.com/weather-camera/?cam=WBSTR";
+
+        //WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        //WebcamImage.Source = fLUrl;
+
+        //return gRUrl;
+
     }
 }
