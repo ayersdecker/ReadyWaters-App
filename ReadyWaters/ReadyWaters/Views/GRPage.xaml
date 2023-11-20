@@ -4,6 +4,7 @@
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
              x:Class="ReadyWaters.Views.GRPage"
              Title="Weather To Go"
+             xmlns:vms="clr-namespace:ReadyWaters.ViewModels"
              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
     
     <Grid BackgroundColor="{DynamicResource Raisin}">
@@ -25,24 +26,12 @@
         </Grid>
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="0"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0">Data</Label>
             <VerticalStackLayout Grid.Row="2">
-                <!--<HorizontalStackLayout>
-                    <Label Text="AirTemp  "/>
-                    <Label x:Name="AirTempField"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Padding="0,10,0,0">
-                    <Label Text="Wind Velocity  "/>
-                    <Label x:Name="WindVelocityField"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Padding="0,10,0,0">
-                    <Label Text="Wind Direction  "/>
-                    <Label x:Name="WindDirectionField"/>
-                </HorizontalStackLayout>-->
+             
                 <chart:SfCartesianChart PaletteBrushes="{Binding CustomColor4}" x:Name="AirTempChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
                     <chart:SfCartesianChart.BindingContext>
                         <vms:GRViewModel/>
@@ -79,7 +68,7 @@
                         </chart:NumericalAxis>
                     </chart:SfCartesianChart.YAxes>
                     <chart:SfCartesianChart.Series>
-                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData1}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="False" >
+                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="True" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData1}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                             <chart:LineSeries.MarkerSettings>
                                 <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                             </chart:LineSeries.MarkerSettings>
@@ -123,7 +112,7 @@
                         </chart:NumericalAxis>
                     </chart:SfCartesianChart.YAxes>
                     <chart:SfCartesianChart.Series>
-                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData2}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="False" >
+                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData2}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                             <chart:LineSeries.MarkerSettings>
                                 <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                             </chart:LineSeries.MarkerSettings>
@@ -167,7 +156,7 @@
                         </chart:NumericalAxis>
                     </chart:SfCartesianChart.YAxes>
                     <chart:SfCartesianChart.Series>
-                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData3}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="False" >
+                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData3}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                             <chart:LineSeries.MarkerSettings>
                                 <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                             </chart:LineSeries.MarkerSettings>

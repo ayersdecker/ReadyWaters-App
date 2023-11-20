@@ -1,6 +1,8 @@
 using Newtonsoft.Json;
 using static System.Net.WebRequestMethods;
 using System.Timers;
+using System.Collections.ObjectModel;
+using ReadyWaters.ViewModels;
 
 namespace ReadyWaters.Views;
 
@@ -15,24 +17,28 @@ public partial class GRPage : ContentPage
     public GRPage()
 	{
 		InitializeComponent();
-        OnGetForecast(43.25408, -77.60178);
+        //OnGetForecast(43.25408, -77.60178);
         BindingContext = this;
         GetDateTimeStamp();
         //PlayWebCamImages();
 
 
     }
-    public async void OnGetForecast(double lon, double lat)
+    public async void Init()
+    {
+        AirTempChart.Series = InjectCharts(await OnGetForecast(43.1790, -77.5714));
+    }
+    public async Task<dynamic> OnGetForecast(double lon, double lat)
     {
         dynamic query = await FetchURLToJson($"https://api.weather.gov/points/{lon},{lat}");
         string forecastUrl = query.properties.forecast;
         dynamic forecast = await FetchURLToJson(forecastUrl);
-
-        string forecastText = forecast.properties.periods[0].detailedForecast;
-        AirTempField.Text = forecast.properties.periods[0].temperature + " F";
-        string humidity = forecast.properties.periods[0].relativeHumidity + "%";
-        WindVelocityField.Text = forecast.properties.periods[0].windSpeed;
-        WindDirectionField.Text = forecast.properties.periods[0].windDirection;
+        return forecast;
+        //string forecastText = forecast.properties.periods[0].detailedForecast;
+        //AirTempField.Text = forecast.properties.periods[0].temperature + " F";
+        //string humidity = forecast.properties.periods[0].relativeHumidity + "%";
+        //WindVelocityField.Text = forecast.properties.periods[0].windSpeed;
+        //WindDirectionField.Text = forecast.properties.periods[0].windDirection;
 
     }
     public async Task<dynamic> FetchURLToJson(string url)
@@ -46,6 +52,33 @@ public partial class GRPage : ContentPage
         string content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<dynamic>(content);
     }
+    public Syncfusion.Maui.Charts.ChartSeriesCollection InjectCharts(dynamic dynamic)
+    {
+        ObservableCollection<double> airTemps = new ObservableCollection<double>();
+        foreach (var period in dynamic.properties.periods)
+        {
+            double temperature = period.temperature;
+            if (period.number! > 5) { airTemps.Add(temperature); }
+
+        }
+        return new Syncfusion.Maui.Charts.ChartSeriesCollection
+            {
+                new Syncfusion.Maui.Charts.LineSeries()
+                {
+                    ItemsSource =  new ObservableCollection<ChartDataModel>
+            {
+                new ChartDataModel("Now", airTemps[0]),
+                new ChartDataModel("+1", airTemps[1]),
+                new ChartDataModel("+2", airTemps[2]),
+                new ChartDataModel("+3", airTemps[3]),
+                new ChartDataModel("+4", airTemps[4]),
+                new ChartDataModel("+5", airTemps[5])
+
+                 }
+                    }
+            };
+    }
+
     public async void GetDateTimeStamp()
     {
 

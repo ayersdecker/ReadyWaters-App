@@ -18,9 +18,10 @@
 
         <Grid Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="20"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <Label Grid.Row="0">Webcam</Label>
                 <WebView Grid.Row="1" x:Name="Webcam" HeightRequest="270" BackgroundColor="{DynamicResource Raisin}"></WebView >
         </Grid>
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
@@ -68,7 +69,7 @@
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
                     <chart:SfCartesianChart.Series>
-                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData1}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="False" >
+                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="True" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData1}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                             <chart:LineSeries.MarkerSettings>
                                 <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                             </chart:LineSeries.MarkerSettings>
@@ -112,7 +113,7 @@
                             </chart:NumericalAxis>
                         </chart:SfCartesianChart.YAxes>
                         <chart:SfCartesianChart.Series>
-                            <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData2}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="False" >
+                            <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData2}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                                 <chart:LineSeries.MarkerSettings>
                                     <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                                 </chart:LineSeries.MarkerSettings>
@@ -156,7 +157,7 @@
                         </chart:NumericalAxis>
                     </chart:SfCartesianChart.YAxes>
                     <chart:SfCartesianChart.Series>
-                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData3}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="False" >
+                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData3}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                             <chart:LineSeries.MarkerSettings>
                                 <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                             </chart:LineSeries.MarkerSettings>
