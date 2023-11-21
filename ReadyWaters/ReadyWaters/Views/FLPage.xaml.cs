@@ -47,12 +47,12 @@ public partial class FLPage : ContentPage
         string month = DateTimeNow.ToString("MM");
         string day = DateTimeNow.ToString("dd");
         string hour = ((DateTimeNow.Hour) - 1).ToString();
-        string minute = "56";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
+        string minute = "29";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
 
         //fLUrl = $"https://www.weatherbug.com/weather-camera/?cam=WBSTR/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
         //fLUrl = "https://www.weatherbug.com/weather-camera/?cam=WBSTR";
 
-        //WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+        WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/WBSTR/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
         //WebcamImage.Source = fLUrl;
 
         //return gRUrl;

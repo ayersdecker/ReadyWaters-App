@@ -20,15 +20,7 @@ namespace ReadyWaters.ViewModels
         public IBViewModel()
         {
 
-            LineData1 = new ObservableCollection<ChartDataModel>
-            {
-                new ChartDataModel("Now", 56),
-                new ChartDataModel("+1", 44),
-                new ChartDataModel("+2", 48),
-                new ChartDataModel("+3", 50),
-                new ChartDataModel("+4", 66),
-                new ChartDataModel("+5", 78)
-            };
+            LineData1 = GetAirTemp(OnGetForecast(-122.3321, 47.6062));
 
             LineData2 = new ObservableCollection<ChartDataModel>
             {
@@ -87,8 +79,7 @@ namespace ReadyWaters.ViewModels
                 new ChartDataModel("+1", airTemps[1]),
                 new ChartDataModel("+2", airTemps[2]),
                 new ChartDataModel("+3", airTemps[3]),
-                new ChartDataModel("+4", airTemps[4]),
-                new ChartDataModel("+5", airTemps[5])
+                new ChartDataModel("+4", airTemps[4])
             };
         }
     }

@@ -94,7 +94,7 @@ public partial class GRPage : ContentPage
         
         WebcamImage.Source = gRUrl;
 
-        var timer = new System.Timers.Timer(5000);
+       /* var timer = new System.Timers.Timer(5000);
         timer.Elapsed += (sender, e) =>
         {
             
@@ -106,7 +106,7 @@ public partial class GRPage : ContentPage
 
             WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
         };
-        timer.Start();
+        timer.Start();*/
 
 
 

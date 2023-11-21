@@ -96,4 +96,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionReadyWatersHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>

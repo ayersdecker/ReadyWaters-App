@@ -11,18 +11,55 @@ namespace ReadyWaters.Views;
 
 public partial class IBPage : ContentPage
 {
+    public DateTime DateTimeNow { get; set; }
+    public string gRUrl { get; set; }
+    public string gRUrl2 { get; set; }
+    public string gRUrl3 { get; set; }
+    public string gRUrl4 { get; set; }
+    public ObservableCollection<ChartDataModel> LineData1 { get; set; } = new ObservableCollection<ChartDataModel>();
+    public ObservableCollection<ChartDataModel> LineData2 { get; set; } = new ObservableCollection<ChartDataModel>();
+    public ObservableCollection<ChartDataModel> LineData3 { get; set; } = new ObservableCollection<ChartDataModel>();
+
     public IBPage()
     {
         InitializeComponent();
         //OnGetForecast(43.1790113, -77.5714571);
         //Init();
-        Webcam.Source = VideoPath();
+        //GetDateTimeStamp();
+        //Webcam.Source = VideoPath();
+
 
     }
     public async void Init()
     {
-       AirTempChart.Series = InjectCharts(await OnGetForecast(43.1790, -77.5714));
+        dynamic forecastData = await OnGetForecast(-122.3321, 47.6062);
+
+        LineData1 = GetAirTemp(forecastData);
+        LineData2 = new ObservableCollection<ChartDataModel>
+        {
+            new ChartDataModel("Now", 56),
+            new ChartDataModel("+1", 44),
+            new ChartDataModel("+2", 48),
+            new ChartDataModel("+3", 50),
+            new ChartDataModel("+4", 66),
+            new ChartDataModel("+5", 78)
+        };
+
+        LineData3 = new ObservableCollection<ChartDataModel>
+        {
+            new ChartDataModel("Now", 0),
+            new ChartDataModel("+1", 0),
+            new ChartDataModel("+2", 0),
+            new ChartDataModel("+3", 0),
+            new ChartDataModel("+4", 0),
+            new ChartDataModel("+5", 0)
+        };
+
+        AirSeries.ItemsSource = LineData1;
+        //WSSeries.ItemsSource = LineData2;
+        //WDSeries.ItemsSource = LineData3;
     }
+
     public async Task<dynamic> OnGetForecast(double lon, double lat)
     {
         dynamic query = await FetchURLToJson($"https://api.weather.gov/points/{lon},{lat}");
@@ -47,31 +84,23 @@ public partial class IBPage : ContentPage
         string content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<dynamic>(content);
     }
-    public Syncfusion.Maui.Charts.ChartSeriesCollection InjectCharts(dynamic dynamic)
+    public ObservableCollection<ChartDataModel> GetAirTemp(dynamic dynamic)
     {
         ObservableCollection<double> airTemps = new ObservableCollection<double>();
-        foreach (var period in dynamic.properties.periods)
+        foreach (var period in dynamic.properties.periods.Take(5))
         {
             double temperature = period.temperature;
-            if (period.number! > 5) { airTemps.Add(temperature); }
-
+            airTemps.Add(temperature);
         }
-        return new Syncfusion.Maui.Charts.ChartSeriesCollection
-            {
-                new Syncfusion.Maui.Charts.LineSeries()
-                {
-                    ItemsSource =  new ObservableCollection<ChartDataModel>
-            {
-                new ChartDataModel("Now", airTemps[0]),
-                new ChartDataModel("+1", airTemps[1]),
-                new ChartDataModel("+2", airTemps[2]),
-                new ChartDataModel("+3", airTemps[3]),
-                new ChartDataModel("+4", airTemps[4]),
-                new ChartDataModel("+5", airTemps[5])
 
-                 }
-                    }
-            };
+        return new ObservableCollection<ChartDataModel>
+        {
+            new ChartDataModel("Now", airTemps[0]),
+            new ChartDataModel("+1", airTemps[1]),
+            new ChartDataModel("+2", airTemps[2]),
+            new ChartDataModel("+3", airTemps[3]),
+            new ChartDataModel("+4", airTemps[4])
+        };
     }
     public HtmlWebViewSource VideoPath()
     {
@@ -84,5 +113,23 @@ public partial class IBPage : ContentPage
                 </html>";
         hal.Html = iframeHtml;
         return hal;
+    }
+
+    public async void GetDateTimeStamp()
+    {
+
+        DateTimeNow = DateTime.Now;
+        string year = DateTimeNow.Year.ToString();
+        string month = DateTimeNow.ToString("MM");
+        string day = DateTimeNow.ToString("dd");
+        string hour = ((DateTimeNow.Hour) - 1).ToString();
+        string minute = "56";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
+
+        gRUrl = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
+
+
+        WebcamImage.Source = gRUrl;
+
+
     }
 }

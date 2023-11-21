@@ -6,6 +6,7 @@
              Title="Weather To Go"
              xmlns:vms="clr-namespace:ReadyWaters.ViewModels"
              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
+
     <ScrollView>
     <Grid BackgroundColor="{DynamicResource Raisin}">
         <Grid.RowDefinitions>
@@ -22,8 +23,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0">Webcam</Label>
-                <WebView Grid.Row="1" x:Name="Webcam" HeightRequest="270" BackgroundColor="{DynamicResource Raisin}"></WebView >
-        </Grid>
+                <Image Grid.Row="1" x:Name="WebcamImage" Source="https://images-webcams.windy.com/49/1562900449/current/full/1562900449.jpg"/>
+            </Grid>
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0"/>
@@ -33,10 +34,8 @@
             
             <VerticalStackLayout Grid.Row="2">
 
-        <chart:SfCartesianChart PaletteBrushes="{Binding CustomColor4}" x:Name="AirTempChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
-            <chart:SfCartesianChart.BindingContext>
-                        <vms:IBViewModel/>
-                    </chart:SfCartesianChart.BindingContext>
+        <chart:SfCartesianChart  x:Name="AirTempChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
+
             <chart:SfCartesianChart.Legend>
                 <chart:ChartLegend ToggleSeriesVisibility="True"/>
             </chart:SfCartesianChart.Legend>
@@ -69,7 +68,7 @@
                 </chart:NumericalAxis>
             </chart:SfCartesianChart.YAxes>
                     <chart:SfCartesianChart.Series>
-                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="True" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData1}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
+                        <chart:LineSeries x:Name="AirSeries" EnableTooltip="True" IsVisibleOnLegend="True" EnableAnimation="True" StrokeWidth="3" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                             <chart:LineSeries.MarkerSettings>
                                 <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                             </chart:LineSeries.MarkerSettings>
@@ -77,10 +76,8 @@
             </chart:SfCartesianChart.Series>
         </chart:SfCartesianChart>
 
-                    <chart:SfCartesianChart PaletteBrushes="{Binding CustomColor2}" x:Name="WindSpeedChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
-                        <chart:SfCartesianChart.BindingContext>
-                            <vms:IBViewModel/>
-                        </chart:SfCartesianChart.BindingContext>
+                    <chart:SfCartesianChart x:Name="WindSpeedChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
+
                         <chart:SfCartesianChart.Legend>
                             <chart:ChartLegend ToggleSeriesVisibility="True"/>
                         </chart:SfCartesianChart.Legend>
@@ -113,19 +110,16 @@
                             </chart:NumericalAxis>
                         </chart:SfCartesianChart.YAxes>
                         <chart:SfCartesianChart.Series>
-                            <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData2}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
+                            <chart:LineSeries x:Name="WSSeries" EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                                 <chart:LineSeries.MarkerSettings>
                                     <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                                 </chart:LineSeries.MarkerSettings>
                             </chart:LineSeries>
                         </chart:SfCartesianChart.Series>
                     </chart:SfCartesianChart>
-                
-                <chart:SfCartesianChart PaletteBrushes="{Binding CustomColor3}" x:Name="WindDirectionChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
-                    <chart:SfCartesianChart.BindingContext>
-                        <vms:IBViewModel/>
-                    </chart:SfCartesianChart.BindingContext>
-                    <chart:SfCartesianChart.Legend>
+
+                    <chart:SfCartesianChart  x:Name="WindDirectionChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
+                        <chart:SfCartesianChart.Legend>
                         <chart:ChartLegend ToggleSeriesVisibility="True"/>
                     </chart:SfCartesianChart.Legend>
                     <chart:SfCartesianChart.Title>
@@ -157,7 +151,7 @@
                         </chart:NumericalAxis>
                     </chart:SfCartesianChart.YAxes>
                     <chart:SfCartesianChart.Series>
-                        <chart:LineSeries EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" ItemsSource="{Binding LineData3}" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
+                        <chart:LineSeries x:Name="WDSeries" EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
                             <chart:LineSeries.MarkerSettings>
                                 <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
                             </chart:LineSeries.MarkerSettings>
