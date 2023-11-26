@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReadyWaters.Views.LVPage"
              xmlns:imageEditor="clr-namespace:Syncfusion.Maui.ImageEditor;assembly=Syncfusion.Maui.ImageEditor"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              Title="Weather To Go">
     
 
@@ -22,8 +24,9 @@
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Chart 1</Label>
-            <Image x:Name="Chart1" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_1.png?1699233129000"/>
+            <Label x:Name="Chart1Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">UV Index for now</Label>
+            <Frame Grid.Row="2" BackgroundColor="LightGray"/>
+            <Image x:Name="Chart1" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000" BackgroundColor="LightGray"/>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -43,12 +46,23 @@
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="10"/>
-            </Grid.RowDefinitions> 
+            </Grid.RowDefinitions>
 
-            <Label Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Chart 2</Label>
-            <imageEditor:SfImageEditor x:Name="Chart2" Grid.Row="2" ZoomLevel="1.1" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_1.png" AllowZoom="True" ShowToolbar="False"/>
-
-            <Slider Grid.Row="3" IsVisible="true" ValueChanged="Slider_ValueChanged" Minimum="1" Maximum="50" Value="5" ></Slider>
+            <Label x:Name="Chart2Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Water Temperature for now</Label>
+            <Image x:Name="Chart2" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_49.png" BackgroundColor="LightGray"/>
+            
+            <sliders:SfSlider x:Name="Slider" Margin="30,0" Value="0" Minimum="0" Maximum="5" Grid.Row="3" ValueChanged="Slider_ValueChanged" ShowLabels="False" StepSize="1">
+                <sliders:SfSlider.ThumbStyle>
+                    <sliders:SliderThumbStyle Fill="#a8a8a8" />
+                </sliders:SfSlider.ThumbStyle>
+                <sliders:SfSlider.ThumbOverlayStyle>
+                    <sliders:SliderThumbOverlayStyle Fill="#705e6cff"/>
+                </sliders:SfSlider.ThumbOverlayStyle>
+                <sliders:SfSlider.TrackStyle>
+                    <sliders:SliderTrackStyle ActiveFill="#905e6cff"
+                                  InactiveFill="#8a94ff" />
+                </sliders:SfSlider.TrackStyle>
+            </sliders:SfSlider>
         </Grid>
         
     </Grid>
