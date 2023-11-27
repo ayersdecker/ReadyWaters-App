@@ -7,7 +7,6 @@
              xmlns:vms="clr-namespace:ReadyWaters.ViewModels"
              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
 
-    <ScrollView>
     <Grid BackgroundColor="{DynamicResource Raisin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
@@ -18,149 +17,36 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0">Webcam</Label>
-                <Image Grid.Row="1" x:Name="WebcamImage" Source="https://images-webcams.windy.com/49/1562900449/current/full/1562900449.jpg"/>
-            </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">Webcam</Label>
+            <Image Grid.Row="1" x:Name="WebcamImage" ScaleX="1.6" Source="https://img.youtube.com/vi/XpC7TdaWKpg/0.jpg"/>
+        </Grid>
+
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
+            <Label Grid.Row="0">Data</Label>
             <VerticalStackLayout Grid.Row="2">
-
-        <chart:SfCartesianChart  x:Name="AirTempChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
-
-            <chart:SfCartesianChart.Legend>
-                <chart:ChartLegend ToggleSeriesVisibility="True"/>
-            </chart:SfCartesianChart.Legend>
-                    <chart:SfCartesianChart.Title>
-                        <Label Text="Air Temp" Margin="0" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" TextColor="#54ff8a"/>
-                    </chart:SfCartesianChart.Title>
-                    <chart:SfCartesianChart.XAxes>
-                <chart:CategoryAxis ShowMajorGridLines="true" Interval="1" PlotOffsetStart="5" PlotOffsetEnd="5" AxisLineOffset="0">
-                    <chart:CategoryAxis.MajorTickStyle>
-                                <chart:ChartAxisTickStyle TickSize="1">
-                                </chart:ChartAxisTickStyle>
-                            </chart:CategoryAxis.MajorTickStyle>
-                            <chart:CategoryAxis.LabelStyle>
-                                <chart:ChartAxisLabelStyle TextColor="White"/>
-                            </chart:CategoryAxis.LabelStyle>
-                        </chart:CategoryAxis>
-            </chart:SfCartesianChart.XAxes>
-            <chart:SfCartesianChart.YAxes>
-                <chart:NumericalAxis Maximum="100" Minimum="0" Interval="25">
-                    <chart:NumericalAxis.LabelStyle>
-                        <chart:ChartAxisLabelStyle LabelFormat="0'F" TextColor="White"/>
-                    </chart:NumericalAxis.LabelStyle>
-                    <chart:NumericalAxis.AxisLineStyle>
-                        <chart:ChartLineStyle StrokeWidth="0">
-                        </chart:ChartLineStyle>
-                    </chart:NumericalAxis.AxisLineStyle>
-                    <chart:NumericalAxis.MajorTickStyle>
-                        <chart:ChartAxisTickStyle TickSize="0" />
-                    </chart:NumericalAxis.MajorTickStyle>
-                </chart:NumericalAxis>
-            </chart:SfCartesianChart.YAxes>
-                    <chart:SfCartesianChart.Series>
-                        <chart:LineSeries x:Name="AirSeries" EnableTooltip="True" IsVisibleOnLegend="True" EnableAnimation="True" StrokeWidth="3" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
-                            <chart:LineSeries.MarkerSettings>
-                                <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
-                            </chart:LineSeries.MarkerSettings>
-                        </chart:LineSeries>
-            </chart:SfCartesianChart.Series>
-        </chart:SfCartesianChart>
-
-                    <chart:SfCartesianChart x:Name="WindSpeedChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
-
-                        <chart:SfCartesianChart.Legend>
-                            <chart:ChartLegend ToggleSeriesVisibility="True"/>
-                        </chart:SfCartesianChart.Legend>
-                        <chart:SfCartesianChart.Title>
-                            <Label Text="Wind Speed" Margin="0" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" TextColor="#ec41f2"/>
-                        </chart:SfCartesianChart.Title>
-                        <chart:SfCartesianChart.XAxes>
-                            <chart:CategoryAxis ShowMajorGridLines="true" Interval="1" PlotOffsetStart="5" PlotOffsetEnd="5" AxisLineOffset="10">
-                                <chart:CategoryAxis.MajorTickStyle>
-                                    <chart:ChartAxisTickStyle TickSize="1">
-                                    </chart:ChartAxisTickStyle>
-                                </chart:CategoryAxis.MajorTickStyle>
-                                <chart:CategoryAxis.LabelStyle>
-                                    <chart:ChartAxisLabelStyle TextColor="White"/>
-                                </chart:CategoryAxis.LabelStyle>
-                            </chart:CategoryAxis>
-                        </chart:SfCartesianChart.XAxes>
-                        <chart:SfCartesianChart.YAxes>
-                            <chart:NumericalAxis Maximum="100" Minimum="0" Interval="25">
-                                <chart:NumericalAxis.LabelStyle>
-                                    <chart:ChartAxisLabelStyle LabelFormat="0'Mph" TextColor="White"/>
-                                </chart:NumericalAxis.LabelStyle>
-                                <chart:NumericalAxis.AxisLineStyle>
-                                    <chart:ChartLineStyle StrokeWidth="0">
-                                    </chart:ChartLineStyle>
-                                </chart:NumericalAxis.AxisLineStyle>
-                                <chart:NumericalAxis.MajorTickStyle>
-                                    <chart:ChartAxisTickStyle TickSize="0" />
-                                </chart:NumericalAxis.MajorTickStyle>
-                            </chart:NumericalAxis>
-                        </chart:SfCartesianChart.YAxes>
-                        <chart:SfCartesianChart.Series>
-                            <chart:LineSeries x:Name="WSSeries" EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
-                                <chart:LineSeries.MarkerSettings>
-                                    <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
-                                </chart:LineSeries.MarkerSettings>
-                            </chart:LineSeries>
-                        </chart:SfCartesianChart.Series>
-                    </chart:SfCartesianChart>
-
-                    <chart:SfCartesianChart  x:Name="WindDirectionChart" HorizontalOptions="Fill" VerticalOptions="Fill" Margin="10" HeightRequest="120">
-                        <chart:SfCartesianChart.Legend>
-                        <chart:ChartLegend ToggleSeriesVisibility="True"/>
-                    </chart:SfCartesianChart.Legend>
-                    <chart:SfCartesianChart.Title>
-                            <Label Text="Wind Direction" Margin="0" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" TextColor="#80b3ed"/>
-                    </chart:SfCartesianChart.Title>
-                    <chart:SfCartesianChart.XAxes>
-                        <chart:CategoryAxis ShowMajorGridLines="true" Interval="1" PlotOffsetStart="5" PlotOffsetEnd="5" AxisLineOffset="10">
-                            <chart:CategoryAxis.MajorTickStyle>
-                                <chart:ChartAxisTickStyle TickSize="1">
-                                </chart:ChartAxisTickStyle>
-                            </chart:CategoryAxis.MajorTickStyle>
-                            <chart:CategoryAxis.LabelStyle>
-                                <chart:ChartAxisLabelStyle TextColor="White"/>
-                            </chart:CategoryAxis.LabelStyle>
-                        </chart:CategoryAxis>
-                    </chart:SfCartesianChart.XAxes>
-                    <chart:SfCartesianChart.YAxes>
-                        <chart:NumericalAxis Maximum="360" Minimum="0" Interval="90">
-                            <chart:NumericalAxis.LabelStyle>
-                                <chart:ChartAxisLabelStyle LabelFormat="0'Degrees" TextColor="White"/>
-                            </chart:NumericalAxis.LabelStyle>
-                            <chart:NumericalAxis.AxisLineStyle>
-                                <chart:ChartLineStyle StrokeWidth="0">
-                                </chart:ChartLineStyle>
-                            </chart:NumericalAxis.AxisLineStyle>
-                            <chart:NumericalAxis.MajorTickStyle>
-                                <chart:ChartAxisTickStyle TickSize="0" />
-                            </chart:NumericalAxis.MajorTickStyle>
-                        </chart:NumericalAxis>
-                    </chart:SfCartesianChart.YAxes>
-                    <chart:SfCartesianChart.Series>
-                        <chart:LineSeries x:Name="WDSeries" EnableTooltip="True" IsVisibleOnLegend="False" EnableAnimation="True" StrokeWidth="3" XBindingPath="Name" YBindingPath="Value" ShowMarkers="True" ShowDataLabels="True" >
-                            <chart:LineSeries.MarkerSettings>
-                                <chart:ChartMarkerSettings Width="8" Height="8" Fill="white" Stroke="#FFFFF" StrokeWidth="1"/>
-                            </chart:LineSeries.MarkerSettings>
-                        </chart:LineSeries>
-                    </chart:SfCartesianChart.Series>
-                </chart:SfCartesianChart>
+                <HorizontalStackLayout>
+                    <Label Text="AirTemp  "/>
+                    <Label x:Name="AirTempField"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="0,10,0,0">
+                    <Label Text="Wind Velocity  "/>
+                    <Label x:Name="WindVelocityField"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Padding="0,10,0,0">
+                    <Label Text="Wind Direction  "/>
+                    <Label x:Name="WindDirectionField"/>
+                </HorizontalStackLayout>
             </VerticalStackLayout>
         </Grid>
-        
+
     </Grid>
-</ScrollView>
 </ContentPage>

@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Shrikhand-Regular.ttf" />
+	  <None Remove="Resources\Images\updown.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -57,6 +58,8 @@
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="LiveChartsCore.SkiaSharpView.Maui" Version="2.0.0-rc2" />
+		<PackageReference Include="Magick.NET-Q16-AnyCPU" Version="13.4.0" />
+		<PackageReference Include="Magick.NET.Core" Version="13.4.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Mopups" Version="1.2.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

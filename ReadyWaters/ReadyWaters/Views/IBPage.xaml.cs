@@ -1,3 +1,4 @@
+using ImageMagick;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
@@ -23,41 +24,12 @@ public partial class IBPage : ContentPage
     public IBPage()
     {
         InitializeComponent();
-        //OnGetForecast(43.1790113, -77.5714571);
+        OnGetForecast(43.1790113, -77.5714571);
         //Init();
         //GetDateTimeStamp();
         //Webcam.Source = VideoPath();
 
 
-    }
-    public async void Init()
-    {
-        dynamic forecastData = await OnGetForecast(-122.3321, 47.6062);
-
-        LineData1 = GetAirTemp(forecastData);
-        LineData2 = new ObservableCollection<ChartDataModel>
-        {
-            new ChartDataModel("Now", 56),
-            new ChartDataModel("+1", 44),
-            new ChartDataModel("+2", 48),
-            new ChartDataModel("+3", 50),
-            new ChartDataModel("+4", 66),
-            new ChartDataModel("+5", 78)
-        };
-
-        LineData3 = new ObservableCollection<ChartDataModel>
-        {
-            new ChartDataModel("Now", 0),
-            new ChartDataModel("+1", 0),
-            new ChartDataModel("+2", 0),
-            new ChartDataModel("+3", 0),
-            new ChartDataModel("+4", 0),
-            new ChartDataModel("+5", 0)
-        };
-
-        AirSeries.ItemsSource = LineData1;
-        //WSSeries.ItemsSource = LineData2;
-        //WDSeries.ItemsSource = LineData3;
     }
 
     public async Task<dynamic> OnGetForecast(double lon, double lat)
@@ -65,12 +37,14 @@ public partial class IBPage : ContentPage
         dynamic query = await FetchURLToJson($"https://api.weather.gov/points/{lon},{lat}");
         string forecastUrl = query.properties.forecast;
         dynamic forecast = await FetchURLToJson(forecastUrl);
+
+        string forecastText = forecast.properties.periods[0].detailedForecast;
+        AirTempField.Text = forecast.properties.periods[0].temperature + " F";
+        string humidity = forecast.properties.periods[0].relativeHumidity + "%";
+        WindVelocityField.Text = forecast.properties.periods[0].windSpeed;
+        WindDirectionField.Text = forecast.properties.periods[0].windDirection;
+
         return forecast;
-        //string forecastText = forecast.properties.periods[0].detailedForecast;
-        //AirTempField.Text = forecast.properties.periods[0].temperature + " F";
-        //string humidity = forecast.properties.periods[0].relativeHumidity + "%";
-        //WindVelocityField.Text = forecast.properties.periods[0].windSpeed;
-        //WindDirectionField.Text = forecast.properties.periods[0].windDirection;
 
     }
     public async Task<dynamic> FetchURLToJson(string url)
@@ -83,24 +57,6 @@ public partial class IBPage : ContentPage
         //response.EnsureSuccessStatusCode();
         string content = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<dynamic>(content);
-    }
-    public ObservableCollection<ChartDataModel> GetAirTemp(dynamic dynamic)
-    {
-        ObservableCollection<double> airTemps = new ObservableCollection<double>();
-        foreach (var period in dynamic.properties.periods.Take(5))
-        {
-            double temperature = period.temperature;
-            airTemps.Add(temperature);
-        }
-
-        return new ObservableCollection<ChartDataModel>
-        {
-            new ChartDataModel("Now", airTemps[0]),
-            new ChartDataModel("+1", airTemps[1]),
-            new ChartDataModel("+2", airTemps[2]),
-            new ChartDataModel("+3", airTemps[3]),
-            new ChartDataModel("+4", airTemps[4])
-        };
     }
     public HtmlWebViewSource VideoPath()
     {
@@ -132,4 +88,5 @@ public partial class IBPage : ContentPage
 
 
     }
+
 }

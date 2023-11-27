@@ -29,12 +29,16 @@
             <Image x:Name="Chart1" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000" BackgroundColor="LightGray"/>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
-                <Picker Grid.Column="0" BackgroundColor="{DynamicResource Gray600}" Title="Upper Chart Select"/>
-                <Picker Grid.Column="2" BackgroundColor="{DynamicResource Gray600}" Title="Lower Chart Select"/>
+                <Picker x:Name="Chart1Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="1" BackgroundColor="{DynamicResource Gray600}" Title="Upper Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
+                <Image Source="updown" Grid.Column="2" Scale=".7"/>
+                <Picker x:Name="Chart2Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="3" BackgroundColor="{DynamicResource Gray600}" Title="Lower Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
+                
             </Grid>
             
         </Grid>
