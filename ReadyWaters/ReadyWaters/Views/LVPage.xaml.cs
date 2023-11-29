@@ -1,6 +1,3 @@
-using Microsoft.Maui.Platform;
-using System;
-
 namespace ReadyWaters.Views;
 
 public partial class LVPage : ContentPage
@@ -19,10 +16,10 @@ public partial class LVPage : ContentPage
 
 
     public LVPage()
-	{
+    {
         InitializeComponent();
         ChartInitialization();
-        
+
     }
 
     // Method to initialize the charts
@@ -55,6 +52,7 @@ public partial class LVPage : ContentPage
         var picker = (Picker)sender;
         int selectedIndex = picker.SelectedIndex;
 
+
         if (ReferenceEquals(picker, Chart1Select))
         {
             if (selectedIndex != -1)
@@ -65,6 +63,7 @@ public partial class LVPage : ContentPage
                 Chart1.Source = string.Format(SelectedChart1, 49 + Slider.Value);
             }
         }
+
         else if (ReferenceEquals(picker, Chart2Select))
         {
             if (selectedIndex != -1)
@@ -79,7 +78,7 @@ public partial class LVPage : ContentPage
 
     private void ChartLabelRefresh()
     {
-      
+
 
         double num = Slider.Value;
 
