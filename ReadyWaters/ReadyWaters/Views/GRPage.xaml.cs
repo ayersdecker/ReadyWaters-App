@@ -20,7 +20,6 @@ public partial class GRPage : ContentPage
         OnGetForecast(43.25408, -77.60178);
         BindingContext = this;
         GetDateTimeStamp();
-        //PlayWebCamImages();
 
 
     }
@@ -44,7 +43,7 @@ public partial class GRPage : ContentPage
     {
         HttpClient client = new HttpClient();
         client.DefaultRequestHeaders.Add("Cache-Control", "no-cache");
-        client.DefaultRequestHeaders.Add("User-Agent", "WaterReady");
+        client.DefaultRequestHeaders.Add("User-Agent", "WeatherToGo");
         client.DefaultRequestHeaders.Add("Accept", "application/json");
         HttpResponseMessage response = await client.GetAsync(url);
         //response.EnsureSuccessStatusCode();

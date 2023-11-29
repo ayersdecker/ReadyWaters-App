@@ -25,8 +25,7 @@
             </Grid.RowDefinitions>
 
             <Label x:Name="Chart1Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">UV Index for now</Label>
-            <Frame Grid.Row="2" BackgroundColor="LightGray"/>
-            <Image x:Name="Chart1" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000" BackgroundColor="LightGray"/>
+            <Image x:Name="Chart1" Scale="1.35" TranslationX="-85" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000"/>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
@@ -36,7 +35,7 @@
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <Picker x:Name="Chart1Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="1" BackgroundColor="{DynamicResource Gray600}" Title="Upper Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
-                <Image Source="updown" Grid.Column="2" Scale=".7"/>
+                <Image Source="updown" Grid.Column="2" Scale=".7" />
                 <Picker x:Name="Chart2Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="3" BackgroundColor="{DynamicResource Gray600}" Title="Lower Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
                 
             </Grid>
@@ -48,14 +47,20 @@
                 <RowDefinition Height="0"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
 
             <Label x:Name="Chart2Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Water Temperature for now</Label>
-            <Image x:Name="Chart2" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_49.png" BackgroundColor="LightGray"/>
+            <Image x:Name="Chart2" Scale="1.35" TranslationX="-85" Grid.Row="2"  Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_49.png"/>
             
-            <sliders:SfSlider x:Name="Slider" Margin="30,0" Value="0" Minimum="0" Maximum="5" Grid.Row="3" ValueChanged="Slider_ValueChanged" ShowLabels="False" StepSize="1">
+            <sliders:SfSlider x:Name="Slider"  Margin="30,0" Value="0" Minimum="0" Maximum="5" Grid.Row="3" ValueChanged="Slider_ValueChanged" ShowLabels="False" StepSize="1">
+                <sliders:SfSlider.Tooltip>
+                    <sliders:SliderTooltip Fill="{DynamicResource Raisin}"
+                                           ShowAlways="True"
+                                           Stroke="#000"
+                                           TextColor="White"/>
+                </sliders:SfSlider.Tooltip>
                 <sliders:SfSlider.ThumbStyle>
                     <sliders:SliderThumbStyle Fill="#a8a8a8" />
                 </sliders:SfSlider.ThumbStyle>
