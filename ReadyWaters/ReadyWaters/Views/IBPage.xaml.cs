@@ -26,7 +26,7 @@ public partial class IBPage : ContentPage
         InitializeComponent();
         OnGetForecast(43.1790113, -77.5714571);
         //Init();
-        //GetDateTimeStamp();
+        GetDateTimeStamp();
         //Webcam.Source = VideoPath();
 
 
@@ -71,7 +71,7 @@ public partial class IBPage : ContentPage
         return hal;
     }
 
-    public async void GetDateTimeStamp()
+    public void GetDateTimeStamp()
     {
 
         DateTimeNow = DateTime.Now;
@@ -82,7 +82,10 @@ public partial class IBPage : ContentPage
         string minute = "56";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
 
         gRUrl = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
-
+        if((DateTimeNow.Hour - 1) >= 13)
+        WCTimestamp.Text = $"{DateTime.Now.Hour - 13}:{minute}";
+        else
+        WCTimestamp.Text = $"{DateTime.Now.Hour - 1}:{minute}";
 
         WebcamImage.Source = gRUrl;
 

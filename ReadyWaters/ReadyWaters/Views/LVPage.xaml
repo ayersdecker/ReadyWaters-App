@@ -6,73 +6,75 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
              Title="Weather To Go">
-    
 
 
-    <Grid BackgroundColor="{x:DynamicResource Raisin}">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+
+    <ScrollView>
+        <Grid BackgroundColor="{x:DynamicResource Raisin}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="20"/>
                 <RowDefinition/>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="10"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
 
-            <Label x:Name="Chart1Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">UV Index for now</Label>
-            <Image x:Name="Chart1" Scale="1.35" TranslationX="-85" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000"/>
-            <Grid Grid.Row="4">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="50"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="10"/>
-                </Grid.ColumnDefinitions>
-                <Picker x:Name="Chart1Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="1" BackgroundColor="{DynamicResource Gray600}" Title="Upper Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
-                <Image Source="updown" Grid.Column="2" Scale=".7" />
-                <Picker x:Name="Chart2Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="3" BackgroundColor="{DynamicResource Gray600}" Title="Lower Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
-                
+                <Label x:Name="Chart1Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">UV Index for now</Label>
+                <imageEditor:SfImageEditor x:Name="Chart1" ShowToolbar="False"  Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000"/>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Picker x:Name="Chart1Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="1" BackgroundColor="{DynamicResource Gray600}" Title="Upper Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
+                    <Image Source="updown" Grid.Column="2" Scale=".7" />
+                    <Picker x:Name="Chart2Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="3" BackgroundColor="{DynamicResource Gray600}" Title="Lower Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
+
+                </Grid>
+
             </Grid>
-            
-        </Grid>
 
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="10"/>
-            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
 
-            <Label x:Name="Chart2Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Water Temperature for now</Label>
-            <Image x:Name="Chart2" Scale="1.35" TranslationX="-85" Grid.Row="2"  Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_49.png"/>
-            
-            <sliders:SfSlider x:Name="Slider"  Margin="30,0" Value="0" Minimum="0" Maximum="5" Grid.Row="3" ValueChanged="Slider_ValueChanged" ShowLabels="False" StepSize="1">
-                <sliders:SfSlider.Tooltip>
-                    <sliders:SliderTooltip Fill="{DynamicResource Raisin}"
-                                           ShowAlways="True"
+                <Label x:Name="Chart2Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Water Temperature for now</Label>
+                <imageEditor:SfImageEditor x:Name="Chart2" ShowToolbar="False" Grid.Row="2"  Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_49.png"/>
+
+                <sliders:SfSlider x:Name="Slider"  Margin="30,0" Value="0" Minimum="0" Maximum="5" Grid.Row="3" ValueChanged="Slider_ValueChanged" ShowLabels="False" StepSize="1">
+                    <sliders:SfSlider.Tooltip>
+                        <sliders:SliderTooltip Fill="{DynamicResource Raisin}"
+                                           ShowAlways="False"
                                            Stroke="#000"
                                            TextColor="White"/>
-                </sliders:SfSlider.Tooltip>
-                <sliders:SfSlider.ThumbStyle>
-                    <sliders:SliderThumbStyle Fill="#a8a8a8" />
-                </sliders:SfSlider.ThumbStyle>
-                <sliders:SfSlider.ThumbOverlayStyle>
-                    <sliders:SliderThumbOverlayStyle Fill="#705e6cff"/>
-                </sliders:SfSlider.ThumbOverlayStyle>
-                <sliders:SfSlider.TrackStyle>
-                    <sliders:SliderTrackStyle ActiveFill="#905e6cff"
+                    </sliders:SfSlider.Tooltip>
+                    <sliders:SfSlider.ThumbStyle>
+                        <sliders:SliderThumbStyle Fill="#a8a8a8" />
+                    </sliders:SfSlider.ThumbStyle>
+                    <sliders:SfSlider.ThumbOverlayStyle>
+                        <sliders:SliderThumbOverlayStyle Fill="#705e6cff"/>
+                    </sliders:SfSlider.ThumbOverlayStyle>
+                    <sliders:SfSlider.TrackStyle>
+                        <sliders:SliderTrackStyle ActiveFill="#905e6cff"
                                   InactiveFill="#8a94ff" />
-                </sliders:SfSlider.TrackStyle>
-            </sliders:SfSlider>
+                    </sliders:SfSlider.TrackStyle>
+                </sliders:SfSlider>
+            </Grid>
+
         </Grid>
-        
-    </Grid>
+    </ScrollView>
 </ContentPage>

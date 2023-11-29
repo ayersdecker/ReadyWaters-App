@@ -25,6 +25,11 @@ public partial class LVPage : ContentPage
     // Method to initialize the charts
     private void ChartInitialization()
     {
+
+        // Current Time
+        DateTime currentTime = DateTime.Now;
+        int currentHour = currentTime.Hour; 
+
         // Set the default chart sources
         SelectedChart1 = SurfaceCurrents;
         SelectedChart2 = SurfaceTemps;
@@ -38,8 +43,8 @@ public partial class LVPage : ContentPage
         Chart2Select.SelectedIndex = 1;
 
         // Source the default charts
-        Chart1.Source = String.Format(SelectedChart1, 49);
-        Chart2.Source = String.Format(SelectedChart2, 49);
+        Chart1.Source = String.Format(SelectedChart1, (currentHour/3) + 49);
+        Chart2.Source = String.Format(SelectedChart2, (currentHour/3) + 49);
 
         // Set the default chart labels
         Chart1Label.Text = $"{Chart1Select.SelectedItem} for now";
@@ -98,6 +103,9 @@ public partial class LVPage : ContentPage
     // Method to handle the slider value change event
     private void Slider_ValueChanged(object sender, Syncfusion.Maui.Sliders.SliderValueChangedEventArgs e)
     {
+        DateTime currentTime = DateTime.Now;
+        int currentHour = currentTime.Hour;
+
         double num = Slider.Value;
 
         // Refesh the chart labels
@@ -107,7 +115,7 @@ public partial class LVPage : ContentPage
         HapticFeedback.Default.Perform(HapticFeedbackType.Click);
 
         // Update chart sources
-        Chart1.Source = String.Format(SelectedChart1, (num + 49));
-        Chart2.Source = String.Format(SelectedChart2, (num + 49));
+        Chart1.Source = String.Format(SelectedChart1, (num + (currentHour/3)+49));
+        Chart2.Source = String.Format(SelectedChart2, (num + (currentHour/3)+49));
     }
 }
