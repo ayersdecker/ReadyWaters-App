@@ -6,7 +6,7 @@
              Title="Weather To Go"
              xmlns:vms="clr-namespace:ReadyWaters.ViewModels"
              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
-    
+
     <Grid BackgroundColor="{DynamicResource Raisin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
@@ -21,41 +21,50 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0">Webcam</Label>
-            <Image Grid.Row="1" x:Name="WebcamImage" ScaleX="1.2"/> <!--"https://cameras-cam.cdn.weatherbug.net/RCGLH/2023/11/06/110620231156_l.jpg"-->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="Cyan">Genessee River Webcam</Label>
+                <Label Grid.Column="1" x:Name="WCTimestamp" TextColor="Cyan" Text="" HorizontalTextAlignment="End" Margin="0,0,5,0"/>
+            </Grid>
+            <Image Grid.Row="1" x:Name="WebcamImage" ScaleX="1.2"/>
         </Grid>
-        <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0"/>
-                <RowDefinition Height="10"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <VerticalStackLayout Grid.Row="2">
-                <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0">Data</Label>
-                    <VerticalStackLayout Grid.Row="2">
-                        <HorizontalStackLayout>
-                            <Label Text="AirTemp  "/>
-                            <Label x:Name="AirTempField"/>
-                        </HorizontalStackLayout>
-                        <HorizontalStackLayout Padding="0,10,0,0">
-                            <Label Text="Wind Velocity  "/>
-                            <Label x:Name="WindVelocityField"/>
-                        </HorizontalStackLayout>
-                        <HorizontalStackLayout Padding="0,10,0,0">
-                            <Label Text="Wind Direction  "/>
-                            <Label x:Name="WindDirectionField"/>
-                        </HorizontalStackLayout>
-                    </VerticalStackLayout>
-                </Grid>
+        <!--"https://cameras-cam.cdn.weatherbug.net/RCGLH/2023/11/06/110620231156_l.jpg"-->
+            <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <VerticalStackLayout Grid.Row="2">
+                    <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0">Data</Label>
+                        <VerticalStackLayout Grid.Row="2">
+                            <HorizontalStackLayout>
+                                <Label Text="AirTemp  "/>
+                                <Label x:Name="AirTempField"/>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout Padding="0,10,0,0">
+                                <Label Text="Wind Velocity  "/>
+                                <Label x:Name="WindVelocityField"/>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout Padding="0,10,0,0">
+                                <Label Text="Wind Direction  "/>
+                                <Label x:Name="WindDirectionField"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Grid>
 
-            </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Grid>
+
         </Grid>
-
-    </Grid>
+    
 </ContentPage>

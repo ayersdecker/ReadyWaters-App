@@ -73,8 +73,9 @@ public partial class IBPage : ContentPage
 
     public void GetDateTimeStamp()
     {
-
+        
         DateTimeNow = DateTime.Now;
+        string dateTimeNowToString = (DateTimeNow).ToString("h:mm tt");
         string year = DateTimeNow.Year.ToString();
         string month = DateTimeNow.ToString("MM");
         string day = DateTimeNow.ToString("dd");
@@ -82,11 +83,11 @@ public partial class IBPage : ContentPage
         string minute = "56";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
 
         gRUrl = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
-        if((DateTimeNow.Hour - 1) >= 13)
-        WCTimestamp.Text = $"{DateTime.Now.Hour - 13}:{minute}";
-        else
-        WCTimestamp.Text = $"{DateTime.Now.Hour - 1}:{minute}";
-
+        //if((DateTimeNow.Hour - 1) >= 13)
+        //WCTimestamp.Text = $"{DateTime.Now.Hour - 13}:{minute}";
+        //else
+        //WCTimestamp.Text = $"{DateTime.Now.Hour - 1}:{minute}";
+        WCTimestamp.Text = dateTimeNowToString;
         WebcamImage.Source = gRUrl;
 
 

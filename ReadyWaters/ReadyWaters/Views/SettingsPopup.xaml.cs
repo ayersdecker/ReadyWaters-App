@@ -25,5 +25,8 @@ public partial class SettingsPopup
     {        
         await Browser.Default.OpenAsync("https://www.glerl.noaa.gov/res/glcfs/ncast.php?lake=ont");
     }
-    
+    private async void IWindSurfButton_Clicked(object sender, EventArgs e)
+    {
+        await Browser.Default.OpenAsync("https://www.iwindsurf.com ");
+    }
 }

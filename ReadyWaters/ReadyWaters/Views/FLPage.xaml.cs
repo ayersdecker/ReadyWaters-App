@@ -43,6 +43,7 @@ public partial class FLPage : ContentPage
     {
 
         DateTimeNow = DateTime.Now;
+        string dateTimeNowToString = (DateTimeNow).ToString("h:mm tt");
         string year = DateTimeNow.Year.ToString();
         string month = DateTimeNow.ToString("MM");
         string day = DateTimeNow.ToString("dd");
@@ -54,7 +55,7 @@ public partial class FLPage : ContentPage
 
         WebcamImage.Source = $"https://cameras-cam.cdn.weatherbug.net/WBSTR/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
         //WebcamImage.Source = fLUrl;
-
+        WCTimestamp.Text = dateTimeNowToString;
         //return gRUrl;
 
     }

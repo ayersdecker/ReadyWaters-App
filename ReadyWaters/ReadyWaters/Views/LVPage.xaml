@@ -8,16 +8,20 @@
              Title="Weather To Go">
 
 
-
-    <ScrollView>
+    
+    <ScrollView>      
+               
+        
         <Grid BackgroundColor="{x:DynamicResource Raisin}">
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition/>                
             </Grid.RowDefinitions>
+           
             <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10"/>
+                    
                     <RowDefinition Height="20"/>
                     <RowDefinition/>
                     <RowDefinition Height="10"/>
@@ -25,8 +29,11 @@
                     <RowDefinition Height="10"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="Chart1Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">UV Index for now</Label>
+                <Label x:Name="Chart1Label" Grid.Row="1" TextColor="Yellow" BackgroundColor="{DynamicResource Gray600}">UV Index for now</Label>
+                <!--<Label x:Name="Chart1LabelForecastTime" Grid.Row="" TextColor="Yellow" BackgroundColor="{DynamicResource Gray600}"/>-->
+
                 <imageEditor:SfImageEditor x:Name="Chart1" ShowToolbar="False"  Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000"/>
+               
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10"/>
@@ -35,9 +42,11 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="10"/>
                     </Grid.ColumnDefinitions>
-                    <Picker x:Name="Chart1Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="1" BackgroundColor="{DynamicResource Gray600}" Title="Upper Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
+                    
+                    <Picker x:Name="Chart1Select" FontSize="Caption" TextColor="Yellow" TitleColor="Yellow" HorizontalTextAlignment="Center" Grid.Column="1" BackgroundColor="{DynamicResource Gray600}" Title="Upper Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
+                    
                     <Image Source="updown" Grid.Column="2" Scale=".7" />
-                    <Picker x:Name="Chart2Select" FontSize="Caption" HorizontalTextAlignment="Center" Grid.Column="3" BackgroundColor="{DynamicResource Gray600}" Title="Lower Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
+                    <Picker x:Name="Chart2Select" FontSize="Caption" TextColor="Cyan"  HorizontalTextAlignment="Center" Grid.Column="3" BackgroundColor="{DynamicResource Gray600}" Title="Lower Chart Select" SelectedIndexChanged="ChartSelect_SelectedIndexChanged"/>
 
                 </Grid>
 
@@ -52,10 +61,9 @@
                     <RowDefinition Height="10"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="Chart2Label" Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">Water Temperature for now</Label>
+                <Label x:Name="Chart2Label" Grid.Row="1" TextColor="Cyan" BackgroundColor="{DynamicResource Gray600}">Water Temperature for now</Label>
                 <imageEditor:SfImageEditor x:Name="Chart2" ShowToolbar="False" Grid.Row="2"  Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_49.png"/>
-
-                <sliders:SfSlider x:Name="Slider"  Margin="30,0" Value="0" Minimum="0" Maximum="5" Grid.Row="3" ValueChanged="Slider_ValueChanged" ShowLabels="False" StepSize="1">
+                <sliders:SfSlider x:Name="Slider"  Margin="30,0" Value="0" Minimum="0" Maximum="12" Grid.Row="3" ValueChanged="Slider_ValueChanged" ShowLabels="False" StepSize="3">
                     <sliders:SfSlider.Tooltip>
                         <sliders:SliderTooltip Fill="{DynamicResource Raisin}"
                                            ShowAlways="False"
