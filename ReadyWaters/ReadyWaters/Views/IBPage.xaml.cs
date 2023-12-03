@@ -88,7 +88,7 @@ public partial class IBPage : ContentPage
         //else
         //WCTimestamp.Text = $"{DateTime.Now.Hour - 1}:{minute}";
         WCTimestamp.Text = dateTimeNowToString;
-        WebcamImage.Source = gRUrl;
+        //WebcamImage.Source = gRUrl;
 
 
     }

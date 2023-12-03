@@ -25,7 +25,7 @@
                 <Label Grid.Column="0" TextColor="Cyan">Forest Lawn Webcam</Label>
                 <Label Grid.Column="1" x:Name="WCTimestamp" TextColor="Cyan" Text="" HorizontalTextAlignment="End" Margin="0,0,5,0"/>
             </Grid>
-            <Image Grid.Column="1" x:Name="WebcamImage" ScaleX="1.2"/>
+            <Image Grid.Row="1" x:Name="WebcamImage" ScaleX="1.2"/>
         </Grid>
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
             <Grid.RowDefinitions>
