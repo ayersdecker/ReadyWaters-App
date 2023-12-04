@@ -1,4 +1,3 @@
-using System.ComponentModel.Design;
 
 namespace ReadyWaters.Views;
 
@@ -19,6 +18,7 @@ public partial class LVPage : ContentPage
     public LVPage()
     {
         InitializeComponent();
+        PreloadCharts();
         ChartInitialization();
 
     }
@@ -85,32 +85,56 @@ public partial class LVPage : ContentPage
     private void ChartLabelRefresh()
     {
         DateTime currentTime = DateTime.Now;
-        double num = Slider.Value;
+        int num = (int)Slider.Value;
         int hourGroup = (currentTime.Hour / 3) * 3;
         string ampm = currentTime.Hour < 12 ? "am" : "pm";
-        if (hourGroup + num >= 24)
+        int setNum = num + hourGroup;
+
+        
+
+        if (setNum >= 24)
         {
-            hourGroup -= 24;
+            setNum -= 24;
             ampm = "am";
+        }
+        if (setNum >= 12)
+        {
+              setNum -= 12;
+               ampm = "pm";
         }
 
             if(num == 0)
             {
-                Chart1Label.Text = $"  {Chart1Select.SelectedItem}: {hourGroup} {ampm}";
-                Chart2Label.Text = $"  {Chart2Select.SelectedItem}: {hourGroup} {ampm}";
+                Chart1Label.Text = $"  {Chart1Select.SelectedItem}: {setNum} {ampm}";
+                Chart2Label.Text = $"  {Chart2Select.SelectedItem}: {setNum} {ampm}";
             }
             else
             {
-                Chart1Label.Text = $"  {Chart1Select.SelectedItem}: {hourGroup + num} {ampm}";
-                Chart2Label.Text = $"  {Chart2Select.SelectedItem}: {hourGroup + num} {ampm}";
+                Chart1Label.Text = $"  {Chart1Select.SelectedItem}: {setNum} {ampm}";
+                Chart2Label.Text = $"  {Chart2Select.SelectedItem}: {setNum} {ampm}";
             }
+
+           if ((hourGroup + num) == 0)
+            {
+                Chart1Label.Text = $"  {Chart1Select.SelectedItem}: Midnight";
+                Chart2Label.Text = $"  {Chart2Select.SelectedItem}: Midnight";
+            }
+            else if ((hourGroup + num) == 12)
+            {
+                Chart1Label.Text = $"  {Chart1Select.SelectedItem}: Noon";
+                Chart2Label.Text = $"  {Chart2Select.SelectedItem}: Noon";
+            }
+
             return;
     }
 
     // Method to handle the slider value change event
     private void Slider_ValueChanged(object sender, Syncfusion.Maui.Sliders.SliderValueChangedEventArgs e)
     {
-        
+        Chart1Busy.IsRunning = true;
+        Chart2Busy.IsRunning = true;
+
+
         DateTime currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
 
@@ -121,9 +145,34 @@ public partial class LVPage : ContentPage
 
         // Perform haptic feedback
         HapticFeedback.Default.Perform(HapticFeedbackType.Click);
+        
+        Chart1.Reset();
+        Chart2.Reset();
+        Chart1.Source = null;
+        Chart2.Source = null;
 
         // Update chart sources
         Chart1.Source = String.Format(SelectedChart1, (num + (currentHour/3)+49));
         Chart2.Source = String.Format(SelectedChart2, (num + (currentHour/3)+49));
+
+        Chart1Busy.IsRunning = false;
+        Chart2Busy.IsRunning = false;
     }
+
+    // Proload Charts
+    private void PreloadCharts()
+    {
+        // Current Time
+        DateTime currentTime = DateTime.Now;
+
+        var webView = new WebView();
+
+        for (int i = 0; i < 8; i++)
+        {
+            webView.Source = new UrlWebViewSource { Url = String.Format(SurfaceCurrents, 49 + i) };
+            webView.Source = new UrlWebViewSource { Url = String.Format(SurfaceTemps, 49 + i) };
+            webView.Source = new UrlWebViewSource { Url = String.Format(WaterLevels, 49 + i) };
+        }
+
+    }   
 }

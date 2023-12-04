@@ -15,11 +15,7 @@ public partial class SettingsPopup
     }
     private async void NOAAButton_Clicked(object sender, EventArgs e)
     {        
-        await Browser.Default.OpenAsync("https://www.noaa.gov" );
-    }
-    private async void WeatherBugButton_Clicked(object sender, EventArgs e)
-    {       
-        await Browser.Default.OpenAsync("https://www.weatherbug.com");
+        await Browser.Default.OpenAsync("https://forecast.weather.gov/MapClick.php?CityName=Rochester&state=NY&site=BUF&lat=43.1687&lon=-77.6158");
     }
     private async void GLERLButton_Clicked(object sender, EventArgs e)
     {        
@@ -27,6 +23,6 @@ public partial class SettingsPopup
     }
     private async void IWindSurfButton_Clicked(object sender, EventArgs e)
     {
-        await Browser.Default.OpenAsync("https://www.iwindsurf.com ");
+        await Browser.Default.OpenAsync("https://wx.iwindsurf.com/windlist/rochester%20ny");
     }
 }

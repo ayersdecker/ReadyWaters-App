@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using Microcharts.Maui;
 using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
 using SkiaSharp.Views.Maui.Controls.Hosting;
@@ -15,6 +16,7 @@ namespace ReadyWaters
                 .UseMauiApp<App>()
                 .ConfigureMopups()
                 .UseSkiaSharp(true)
+                .UseMicrocharts()
                 .ConfigureSyncfusionCore()
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>

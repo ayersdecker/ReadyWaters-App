@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ReadyWaters.Views.FLPage"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              Title="Weather To Go">
     <Grid BackgroundColor="{DynamicResource Raisin}">
         <Grid.RowDefinitions>
@@ -22,31 +23,43 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" TextColor="Cyan">Forest Lawn Webcam</Label>
+                <Label Grid.Column="0" Margin="5,0,0,0" TextColor="Cyan">Forest Lawn Webcam</Label>
                 <Label Grid.Column="1" x:Name="WCTimestamp" TextColor="Cyan" Text="" HorizontalTextAlignment="End" Margin="0,0,5,0"/>
             </Grid>
             <Image Grid.Row="1" x:Name="WebcamImage" ScaleX="1.2"/>
         </Grid>
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="10"/>
+                <RowDefinition Height="0"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0">Data</Label>
-            <VerticalStackLayout Grid.Row="2">
-                <HorizontalStackLayout>
-                    <Label Text="AirTemp  "/>
-                    <Label x:Name="AirTempField"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Padding="0,10,0,0">
-                    <Label Text="Wind Velocity  "/>
-                    <Label x:Name="WindVelocityField"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Padding="0,10,0,0">
-                    <Label Text="Wind Direction  "/>
-                    <Label x:Name="WindDirectionField"/>
-                </HorizontalStackLayout>
+            <VerticalStackLayout Grid.Row="1">
+                <Label Text="Air Temperature" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
+                <micro:ChartView x:Name="chartView1" HeightRequest="100" BackgroundColor="{DynamicResource Raisin}" />
+                <Label Text="Wind Speed" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
+                <micro:ChartView x:Name="chartView2" HeightRequest="100" BackgroundColor="{DynamicResource Raisin}"/>
+                <Label Text="Wind Direction" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
+                <Grid HeightRequest="50" BackgroundColor="{DynamicResource Raisin}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" x:Name="Dir0Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="1" x:Name="Dir1Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="2" x:Name="Dir2Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="3" x:Name="Dir3Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="4" x:Name="Dir4Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="5" x:Name="Dir5Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="6" x:Name="Dir6Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="7" x:Name="Dir7Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                </Grid>
+
             </VerticalStackLayout>
         </Grid>
 

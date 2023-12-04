@@ -10,7 +10,7 @@
     Shell.NavBarIsVisible="True">
 
     <Shell.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="{DynamicResource Raisin}" StatusBarStyle="LightContent"/>
+        <mct:StatusBarBehavior StatusBarColor="#444" StatusBarStyle="LightContent"/>
     </Shell.Behaviors>
     
     <Shell.ToolbarItems>
@@ -22,7 +22,7 @@
             <ShellContent Title="Lake Ontario"
                             ContentTemplate="{DataTemplate views:LVPage}" />
             <ShellContent Title="Irondequoit Bay"
-                            ContentTemplate="{DataTemplate views:IBPage}" />
+                            ContentTemplate="{DataTemplate views:IBPage}"/>
             <ShellContent Title="Genesee River"
                             ContentTemplate="{DataTemplate views:GRPage}" />
             <ShellContent Title="Forest Lawn"

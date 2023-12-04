@@ -31,8 +31,9 @@
 
                 <Label x:Name="Chart1Label" Grid.Row="1" TextColor="Yellow" BackgroundColor="{DynamicResource Gray600}">Chart1Label</Label>
 
-                <imageEditor:SfImageEditor x:Name="Chart1" ShowToolbar="False"  Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000"/>
-               
+                <imageEditor:SfImageEditor x:Name="Chart1" ShowToolbar="False" BackgroundColor="#666" Grid.Row="2" ZoomLevel="1.1" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_49.png?1699233129000"/>
+                <syncfusion:SfBusyIndicator x:Name="Chart1Busy" IsRunning="False" IndicatorColor="Yellow" Grid.Row="2"/>
+
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10"/>
@@ -60,7 +61,8 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name="Chart2Label" Grid.Row="1" TextColor="Cyan" BackgroundColor="{DynamicResource Gray600}">Chart2Label</Label>
-                <imageEditor:SfImageEditor x:Name="Chart2" ShowToolbar="False" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_49.png"/>
+                <imageEditor:SfImageEditor x:Name="Chart2" ShowToolbar="False" ZoomLevel="1.1" BackgroundColor="#666" Grid.Row="2" Source="https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_49.png"/>
+                <syncfusion:SfBusyIndicator x:Name="Chart2Busy" IsRunning="False" Grid.Row="2" IndicatorColor="Cyan"/>
                 <sliders:SfSlider x:Name="Slider"  Margin="30,0" Value="0" Minimum="0" Maximum="12" Grid.Row="3" ValueChanged="Slider_ValueChanged" ShowLabels="False" StepSize="3">
                     <sliders:SfSlider.Tooltip>
                         <sliders:SliderTooltip Fill="{DynamicResource Raisin}"

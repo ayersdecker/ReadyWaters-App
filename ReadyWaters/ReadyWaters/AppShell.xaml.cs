@@ -1,4 +1,5 @@
 ﻿using Mopups.Services;
+using ReadyWaters.Views;
 
 namespace ReadyWaters
 {
@@ -13,5 +14,6 @@ namespace ReadyWaters
         {
             MopupService.Instance.PushAsync(new Views.SettingsPopup(), false);
         }
+
     }
 }
