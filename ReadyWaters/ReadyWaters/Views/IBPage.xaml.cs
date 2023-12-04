@@ -271,13 +271,18 @@ public partial class IBPage : ContentPage
         string hour = ((DateTimeNow.Hour) - 1).ToString();
         string ampm = (DateTimeNow.Hour - 1) < 12 ? "am" : "pm";
         string minute = "56";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
+        string newHour = hour;
+        if (int.Parse(hour) > 12) { newHour = (int.Parse(hour) - 12).ToString(); }
+
+        WCTimestamp.Text = newHour + ":" + minute + " " + ampm;
+        if (hour.Length == 1) { hour = "0" + hour; }
+
 
         // = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
         //if((DateTimeNow.Hour - 1) >= 13)
         //WCTimestamp.Text = $"{DateTime.Now.Hour - 13}:{minute}";
         //else
         //WCTimestamp.Text = $"{DateTime.Now.Hour - 1}:{minute}";
-        WCTimestamp.Text = hour + ":" + minute + " " + ampm;
         //WebcamImage.Source = gRUrl;
 
 

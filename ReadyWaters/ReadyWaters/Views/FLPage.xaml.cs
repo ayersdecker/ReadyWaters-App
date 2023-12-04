@@ -237,7 +237,10 @@ public partial class FLPage : ContentPage
         string hour = ((DateTimeNow.Hour) - 1).ToString();
         string ampm = (DateTimeNow.Hour - 1) < 12 ? "am" : "pm"; 
         string minute = "59";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
-        WCTimestamp.Text = hour + ":" + minute + " " + ampm;
+        string newHour = hour;
+        if (int.Parse(hour) > 12) { newHour = (int.Parse(hour) - 12).ToString(); }
+        
+        WCTimestamp.Text = newHour + ":" + minute + " " + ampm;
         if (hour.Length == 1){hour = "0" + hour;}
        
         //fLUrl = $"https://www.weatherbug.com/weather-camera/?cam=WBSTR/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";

@@ -39,9 +39,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <VerticalStackLayout Grid.Row="1">
-                <Label Text="Air Temperature" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
+                <Label Text="Air Temperature (F)" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
                 <micro:ChartView x:Name="chartView1" HeightRequest="100" BackgroundColor="{DynamicResource Raisin}" />
-                <Label Text="Wind Speed" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
+                <Label Text="Wind Speed (mph)" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
                 <micro:ChartView x:Name="chartView2" HeightRequest="100" BackgroundColor="{DynamicResource Raisin}"/>
                 <Label Text="Wind Direction" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
                 <Grid HeightRequest="50" BackgroundColor="{DynamicResource Raisin}">
