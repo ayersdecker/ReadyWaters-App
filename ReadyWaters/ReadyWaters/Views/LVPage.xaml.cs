@@ -1,4 +1,6 @@
 
+using System;
+
 namespace ReadyWaters.Views;
 
 public partial class LVPage : ContentPage
@@ -65,7 +67,7 @@ public partial class LVPage : ContentPage
                 if (selectedIndex == 0) { SelectedChart1 = SurfaceCurrents; }
                 if (selectedIndex == 1) { SelectedChart1 = SurfaceTemps; }
                 if (selectedIndex == 2) { SelectedChart1 = WaterLevels; }
-                Chart1.Source = string.Format(SelectedChart1, 49 + Slider.Value);
+                Chart1.Source = string.Format(SelectedChart1, 49 + (Slider.Value/3));
             }
         }
 
@@ -76,10 +78,13 @@ public partial class LVPage : ContentPage
                 if (selectedIndex == 0) { SelectedChart2 = SurfaceCurrents; }
                 if (selectedIndex == 1) { SelectedChart2 = SurfaceTemps; }
                 if (selectedIndex == 2) { SelectedChart2 = WaterLevels; }
-                Chart2.Source = string.Format(SelectedChart2, 49 + Slider.Value);
+                Chart2.Source = string.Format(SelectedChart2, 49 + (Slider.Value/3));
             }
         }
         ChartLabelRefresh();
+        Slider_ValueChanged(sender, null);
+
+
     }
 
     private void ChartLabelRefresh()
