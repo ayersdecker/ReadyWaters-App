@@ -253,7 +253,7 @@ public partial class IBPage : ContentPage
         string iframeHtml = $@"
                 <html>
                     <body>
-                        <iframe width='370' height='250' src='https://www.youtube.com/embed/XpC7TdaWKpg?autoplay=1&showinfo=0&controls=0' frameborder='0' allow='autoplay'></iframe>
+                        <iframe position='absolute' width='400' height='100' src='https://www.youtube.com/embed/XpC7TdaWKpg?autoplay=1&showinfo=0&controls=0' frameborder='0' allow='autoplay'></iframe>
                     </body>
                 </html>";
         hal.Html = iframeHtml;
@@ -276,7 +276,6 @@ public partial class IBPage : ContentPage
 
         WCTimestamp.Text = newHour + ":" + minute + " " + ampm;
         if (hour.Length == 1) { hour = "0" + hour; }
-
 
         // = $"https://cameras-cam.cdn.weatherbug.net/RCGLH/{year}/{month}/{day}/{month}{day}{year}{hour}{minute}_l.jpg";
         //if((DateTimeNow.Hour - 1) >= 13)
