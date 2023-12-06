@@ -8,14 +8,14 @@ public partial class LVPage : ContentPage
     // Chart Sources
     public string SurfaceCurrents = "https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_{0}.png";
     public string SurfaceTemps = "https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_{0}.png";
-    public string WaterLevels = "https://www.glerl.noaa.gov/res/glcfs/ont/frames//zeta_{0}.png";
+    public string SurfaceWinds = "https://www.glerl.noaa.gov/res/glcfs/ont/frames//wnd_{0}.png";
 
     // Selected Chart Source
     public string SelectedChart1 { get; set; }
     public string SelectedChart2 { get; set; }
 
     // Selection Options
-    public List<string> ChartOptions = new List<string> { "Surface Currents", "Surface Temperatures", "Water Levels" };
+    public List<string> ChartOptions = new List<string> { "Surface Currents", "Surface Temperatures", "Surface Winds" };
 
     public LVPage()
     {
@@ -66,7 +66,7 @@ public partial class LVPage : ContentPage
             {
                 if (selectedIndex == 0) { SelectedChart1 = SurfaceCurrents; }
                 if (selectedIndex == 1) { SelectedChart1 = SurfaceTemps; }
-                if (selectedIndex == 2) { SelectedChart1 = WaterLevels; }
+                if (selectedIndex == 2) { SelectedChart1 = SurfaceWinds; }
                 Chart1.Source = string.Format(SelectedChart1, 49 + (Slider.Value/3));
             }
         }
@@ -77,7 +77,7 @@ public partial class LVPage : ContentPage
             {
                 if (selectedIndex == 0) { SelectedChart2 = SurfaceCurrents; }
                 if (selectedIndex == 1) { SelectedChart2 = SurfaceTemps; }
-                if (selectedIndex == 2) { SelectedChart2 = WaterLevels; }
+                if (selectedIndex == 2) { SelectedChart2 = SurfaceWinds; }
                 Chart2.Source = string.Format(SelectedChart2, 49 + (Slider.Value/3));
             }
         }
@@ -176,7 +176,7 @@ public partial class LVPage : ContentPage
         {
             webView.Source = new UrlWebViewSource { Url = String.Format(SurfaceCurrents, 49 + i) };
             webView.Source = new UrlWebViewSource { Url = String.Format(SurfaceTemps, 49 + i) };
-            webView.Source = new UrlWebViewSource { Url = String.Format(WaterLevels, 49 + i) };
+            webView.Source = new UrlWebViewSource { Url = String.Format(SurfaceWinds, 49 + i) };
         }
 
     }   

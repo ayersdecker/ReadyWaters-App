@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReadyWaters.Views.AboutPage"
+             Title="About Application"
+             Shell.NavBarIsVisible="True">
+    <VerticalStackLayout HorizontalOptions="Center" Spacing="10" Margin="20">
+
+        <Label FontSize="Large" FontAttributes="Bold" Margin="0,10,0,0">Weather To Go</Label>
+        <Label FontSize="Medium" FontAttributes="Bold">Clients: Ken Altfather, John Hair</Label>
+        <Label>Client Organization: BayCreek Paddling Center</Label>
+        <Label>Client Site: https://www.baycreek.com/</Label>
+        <Label FontSize="Medium" FontAttributes="Bold">Developers: Hector Rivera, Decker Ayers</Label>
+        <Label>Development Organization: RIT/NTID</Label>
+        <Label>Developer Site: https://www.rit.edu/ntid/</Label>
+        <Label FontSize="Medium">Description:</Label>
+        <Label>Weather To Go is a marine weather app developed to help those who use the waters at Irondequoit Bay, Forest Lawn, and the Genesee River. The goal is to provide a one stop application that provides forecasts for avid or casual users who may kayak, windsurf, stand-up paddle or take part in other marine activities.</Label>
+        <Label FontSize="Medium">Terms of Use</Label>
+        
+    </VerticalStackLayout>
+</ContentPage>

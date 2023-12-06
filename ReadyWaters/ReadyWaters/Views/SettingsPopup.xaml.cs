@@ -25,4 +25,8 @@ public partial class SettingsPopup
     {
         await Browser.Default.OpenAsync("https://wx.iwindsurf.com/windlist/rochester%20ny");
     }
+    private async void AboutButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AboutPage());
+    }
 }

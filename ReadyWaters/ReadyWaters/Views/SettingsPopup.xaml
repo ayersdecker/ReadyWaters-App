@@ -6,19 +6,21 @@
              x:Class="ReadyWaters.Views.SettingsPopup"
              BackgroundColor="#80000000"
              Title="SettingsPopup">
-    <Frame CornerRadius="10" BorderColor="{DynamicResource Gray600}" BackgroundColor="{DynamicResource Raisin}" WidthRequest="200" HeightRequest="200" VerticalOptions="Start" HorizontalOptions="End">
+    <Frame CornerRadius="10" BorderColor="{DynamicResource Gray600}" BackgroundColor="{DynamicResource Raisin}" WidthRequest="200" HeightRequest="300" VerticalOptions="Start" HorizontalOptions="End">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <WebView x:Name="webView" Source="https://www.baycreek.com" />
-            <Button Grid.Row="0" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="BayCreek Paddling" TextColor="White" Clicked="BayCreekButton_Clicked"/>
-            <Button Grid.Row="1" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="NOAA Rochester" TextColor="White" Clicked="NOAAButton_Clicked"/>
-            <Button Grid.Row="2" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="GLERL" TextColor="White" Clicked="GLERLButton_Clicked"/>
-            <Button Grid.Row="3" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="IWindSurf"  TextColor="White" Clicked="IWindSurfButton_Clicked"/>
+            <Button Grid.Row="1" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="BayCreek Paddling" TextColor="White" Clicked="BayCreekButton_Clicked"/>
+            <Button Grid.Row="0" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="About App" TextColor="White" Clicked="AboutButton_Clicked"/>
+            <Button Grid.Row="2" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="NOAA Rochester" TextColor="White" Clicked="NOAAButton_Clicked"/>
+            <Button Grid.Row="3" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="GLERL" TextColor="White" Clicked="GLERLButton_Clicked"/>
+            <Button Grid.Row="4" BorderColor="{DynamicResource Gray600}" BorderWidth="1" BackgroundColor="{DynamicResource Raisin}" Text="IWindSurf"  TextColor="White" Clicked="IWindSurfButton_Clicked"/>
         </Grid>
     </Frame>
     

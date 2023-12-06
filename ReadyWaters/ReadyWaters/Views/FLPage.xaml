@@ -49,6 +49,10 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" x:Name="Dir0Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                     <Label Grid.Column="1" x:Name="Dir1Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
@@ -58,6 +62,10 @@
                     <Label Grid.Column="5" x:Name="Dir5Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                     <Label Grid.Column="6" x:Name="Dir6Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                     <Label Grid.Column="7" x:Name="Dir7Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="8" x:Name="Dir8Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="9" x:Name="Dir9Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="10" x:Name="Dir10Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Grid.Column="11" x:Name="Dir11Label" Text="" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                 </Grid>
 
             </VerticalStackLayout>
