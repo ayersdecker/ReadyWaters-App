@@ -7,15 +7,24 @@
     xmlns:views="clr-namespace:ReadyWaters.Views"
     xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
     Shell.FlyoutBehavior="Disabled"
-    Shell.NavBarIsVisible="True">
+    Shell.NavBarIsVisible="True"
+    Shell.TitleColor="{DynamicResource TextLight}"
+    Shell.UnselectedColor="{DynamicResource TextDark}">
 
     <Shell.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="#444" StatusBarStyle="LightContent"/>
+        <mct:StatusBarBehavior StatusBarColor="#080357" StatusBarStyle="LightContent"/>
     </Shell.Behaviors>
-    
+    <Shell.TitleView>
+        <Label Text="Whether to go" FontFamily="Shrikhand" FontSize="Title" VerticalOptions="Center"/>
+    </Shell.TitleView>
+
     <Shell.ToolbarItems>
         <ToolbarItem IconImageSource="dotmenu.png" Clicked="ToolbarItem_Clicked"/>
     </Shell.ToolbarItems>
+
+    <Shell.BackgroundColor>
+        #080357
+    </Shell.BackgroundColor>
 
     <TabBar>
         <Tab>

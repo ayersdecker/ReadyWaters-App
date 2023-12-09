@@ -8,7 +8,7 @@
              xmlns:vms="clr-namespace:ReadyWaters.ViewModels"
              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
 
-    <Grid BackgroundColor="{DynamicResource Raisin}">
+    <Grid BackgroundColor="{DynamicResource BackgroundLight}">
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
             <RowDefinition Height="200"/>
@@ -17,7 +17,7 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="1" BackgroundColor="{DynamicResource Gray600}">
+        <Grid Grid.Row="1" Margin="5,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition/>
@@ -27,13 +27,13 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Margin="5,0,0,0" TextColor="Cyan">Irondequoit Bay Webcam</Label>
-                <Label Grid.Column="1" x:Name="WCTimestamp" TextColor="Cyan" Text="" HorizontalTextAlignment="End" Margin="0,0,5,0"/>
+                <Label Grid.Column="0" Margin="5,0,0,0" TextColor="{DynamicResource White}">Irondequoit Bay Webcam</Label>
+                <Label Grid.Column="1" x:Name="WCTimestamp" TextColor="{DynamicResource White}" Text="" HorizontalTextAlignment="End" Margin="0,0,5,0"/>
             </Grid>
             <Image Grid.Row="1" x:Name="WebcamImage" ScaleX="1.6" Source="https://img.youtube.com/vi/XpC7TdaWKpg/0.jpg"/>
         </Grid>
 
-        <Grid Grid.Row="3" BackgroundColor="{DynamicResource Gray600}">
+        <Grid Grid.Row="3" BackgroundColor="{DynamicResource BackgroundLight}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0"/>
                 <RowDefinition/>
