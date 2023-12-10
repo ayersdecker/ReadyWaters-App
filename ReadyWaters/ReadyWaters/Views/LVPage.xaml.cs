@@ -9,13 +9,14 @@ public partial class LVPage : ContentPage
     public string SurfaceCurrents = "https://www.glerl.noaa.gov/res/glcfs/ont/frames//uv_{0}.png";
     public string SurfaceTemps = "https://www.glerl.noaa.gov/res/glcfs/ont/frames//temp_{0}.png";
     public string SurfaceWinds = "https://www.glerl.noaa.gov/res/glcfs/ont/frames//wnd_{0}.png";
+    public string WaveHeight = "https://www.glerl.noaa.gov/emf/waves/WW3/images//ww3glo-{0}.png";
 
     // Selected Chart Source
     public string SelectedChart1 { get; set; }
     public string SelectedChart2 { get; set; }
 
     // Selection Options
-    public List<string> ChartOptions = new List<string> { "Surface Currents", "Surface Temperatures", "Surface Winds" };
+    public List<string> ChartOptions = new List<string> { "Surface Currents", "Surface Temperatures", "Surface Winds", "Wave Height" };
 
     public LVPage()
     {
@@ -67,6 +68,7 @@ public partial class LVPage : ContentPage
                 if (selectedIndex == 0) { SelectedChart1 = SurfaceCurrents; }
                 if (selectedIndex == 1) { SelectedChart1 = SurfaceTemps; }
                 if (selectedIndex == 2) { SelectedChart1 = SurfaceWinds; }
+                if (selectedIndex == 3) { SelectedChart1 = WaveHeight; }
                 Chart1.Source = string.Format(SelectedChart1, 49 + (Slider.Value/3));
             }
         }
@@ -78,6 +80,7 @@ public partial class LVPage : ContentPage
                 if (selectedIndex == 0) { SelectedChart2 = SurfaceCurrents; }
                 if (selectedIndex == 1) { SelectedChart2 = SurfaceTemps; }
                 if (selectedIndex == 2) { SelectedChart2 = SurfaceWinds; }
+                if (selectedIndex == 3) { SelectedChart2 = WaveHeight; }
                 Chart2.Source = string.Format(SelectedChart2, 49 + (Slider.Value/3));
             }
         }
@@ -162,8 +165,30 @@ public partial class LVPage : ContentPage
         Chart2.Source = null;
 
         // Update chart sources
-        Chart1.Source = String.Format(SelectedChart1, (num + (currentHour/3)+49));
-        Chart2.Source = String.Format(SelectedChart2, (num + (currentHour/3)+49));
+        if (SelectedChart1 != WaveHeight && SelectedChart2 != WaveHeight)
+        {
+            Chart1.Source = String.Format(SelectedChart1, (num + (currentHour / 3) + 49));
+            Chart2.Source = String.Format(SelectedChart2, (num + (currentHour / 3) + 49));
+        }
+        else if( SelectedChart1 == WaveHeight && SelectedChart2 != WaveHeight)
+        { 
+            Chart1.Source = String.Format(SelectedChart1, (num * 3));
+            Chart1.ZoomLevel = 2;
+            Chart2.Source = String.Format(SelectedChart2, (num + (currentHour / 3) + 49));
+        }
+        else if( SelectedChart1 !=  WaveHeight && SelectedChart2 == WaveHeight)
+        {
+            Chart1.Source = String.Format(SelectedChart1, (num + (currentHour / 3) + 49));
+            Chart2.Source = String.Format(SelectedChart2, (num * 3));
+            Chart2.ZoomLevel = 2;
+        }
+        else
+        {
+            Chart1.Source = String.Format(SelectedChart1, (num * 3));
+            Chart1.ZoomLevel = 2;
+            Chart2.Source = String.Format(SelectedChart2, (num * 3));
+            Chart2.ZoomLevel = 2;
+        }
 
         Chart1Busy.IsRunning = false;
         Chart2Busy.IsRunning = false;
@@ -182,6 +207,7 @@ public partial class LVPage : ContentPage
             webView.Source = new UrlWebViewSource { Url = String.Format(SurfaceCurrents, 49 + i) };
             webView.Source = new UrlWebViewSource { Url = String.Format(SurfaceTemps, 49 + i) };
             webView.Source = new UrlWebViewSource { Url = String.Format(SurfaceWinds, 49 + i) };
+            webView.Source = new UrlWebViewSource { Url = String.Format(WaveHeight, i) };
         }
 
     }   
