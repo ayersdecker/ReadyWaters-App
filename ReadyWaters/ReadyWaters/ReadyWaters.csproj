@@ -33,9 +33,11 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\wtglogo.png" />
+		<MauiImage Include="Resources\Splash\wtglogo.png" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\wtglogo.png" Color="#FFFFFF" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -49,9 +51,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\wtglogo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Fonts\Shrikhand-Regular.ttf" />
 	  <None Remove="Resources\Images\sync.png" />
 	  <None Remove="Resources\Images\updown.png" />
+	  <None Remove="Resources\Images\wtglogo.png" />
+	  <None Remove="Resources\Splash\wtglogo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
