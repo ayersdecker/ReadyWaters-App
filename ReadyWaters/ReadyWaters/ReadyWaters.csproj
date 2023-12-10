@@ -12,10 +12,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>ReadyWaters</ApplicationTitle>
+		<ApplicationTitle>Whether To Go</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.readywaters</ApplicationId>
+		<ApplicationId>com.baycreek.whethertogo</ApplicationId>
 		<ApplicationIdGuid>fd3d2a75-33ff-4a42-a22f-65f79492f8c0</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -32,7 +32,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\wtglogo.png" ForegroundFile="Resources\AppIcon\wtglogo.png" Color="#FFFFFF" />
 		<MauiIcon Include="Resources\AppIcon\wtglogo.png" />
 		<MauiImage Include="Resources\Splash\wtglogo.png" />
 

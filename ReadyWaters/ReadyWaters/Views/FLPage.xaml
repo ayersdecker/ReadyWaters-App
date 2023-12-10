@@ -26,14 +26,14 @@
                 <Label Grid.Column="0" Margin="5,0,0,0" TextColor="{DynamicResource White}">Forest Lawn Webcam</Label>
                 <Label Grid.Column="1" x:Name="WCTimestamp" TextColor="{DynamicResource White}" Text="" HorizontalTextAlignment="End" Margin="0,0,5,0"/>
             </Grid>
-            <Image Grid.Row="1" x:Name="WebcamImage" ScaleX="1.2" BackgroundColor="{DynamicResource BackgroundDark}"/>
+            <Image Grid.Row="1" x:Name="WebcamImage" ScaleX="1.2" />
         </Grid>
         <Grid Grid.Row="3" BackgroundColor="{DynamicResource BackgroundLight}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <VerticalStackLayout Grid.Row="1">
+            <VerticalStackLayout Grid.Row="1" Spacing="15">
                 <Label Text="Air Temperature (F)" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>
                 <micro:ChartView x:Name="chartView1" HeightRequest="100" BackgroundColor="{DynamicResource Raisin}" />
                 <Label Text="Wind Speed (mph)" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="30"/>

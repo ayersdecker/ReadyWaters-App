@@ -124,6 +124,11 @@ public partial class LVPage : ContentPage
                 Chart1Label.Text = $"  {Chart1Select.SelectedItem}: Midnight";
                 Chart2Label.Text = $"  {Chart2Select.SelectedItem}: Midnight";
             }
+            else if(Chart1Label.Text == $"  {Chart1Select.SelectedItem}: 0 am")
+            {
+                Chart1Label.Text = $"  {Chart1Select.SelectedItem}: Midnight";
+                Chart2Label.Text = $"  {Chart2Select.SelectedItem}: Midnight";
+            }
             else if ((hourGroup + num) == 12)
             {
                 Chart1Label.Text = $"  {Chart1Select.SelectedItem}: Noon";
