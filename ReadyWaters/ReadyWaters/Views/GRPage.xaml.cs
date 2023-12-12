@@ -23,7 +23,7 @@ public partial class GRPage : ContentPage
     {
         try
         {
-            var forecastStatus = await OnGetForecast(43.1790113, -77.5714571);
+            var forecastStatus = await OnGetForecast(43.240322, -77.6163939);
             GetChartData(forecastStatus);
             GetDateTimeStamp();
         }
@@ -328,7 +328,7 @@ public partial class GRPage : ContentPage
         string day = DateTimeNow.ToString("dd");
         string hour = ((DateTimeNow.Hour) - 1).ToString();
         string ampm = (DateTimeNow.Hour - 1) < 12 ? "am" : "pm";
-        string minute = "56";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
+        string minute = "26";//DateTimeNow.ToString();IF THE CAMERA SOURCE GETS OUT OF SYNC, THERE COULD BE A PROBLEM AND THIS VALUE "56", REPRESENTING MINUTES IN THE URL, MAY HAVE TO CHANGE
         string newHour = hour;
         if (int.Parse(hour) > 12) { newHour = (int.Parse(hour) - 12).ToString(); }
 

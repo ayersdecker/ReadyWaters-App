@@ -17,7 +17,7 @@ public partial class FLPage : ContentPage
     {
         try
         {
-            var forecastStatus = await OnGetForecast(43.254140, -77.479121);
+            var forecastStatus = await OnGetForecast(43.250527, -77.497568);
             GetChartData(forecastStatus);
             GetDateTimeStamp();
         }
